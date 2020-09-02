@@ -1,0 +1,17 @@
+<!-- <div>
+  <p *ngFor="let menu of Menu">
+    <a [routerLink]="menu">{{menu}}</a>
+  </p>
+</div> -->
+
+<div id="container">
+  <div class="row" *ngFor="let menu of Menu">
+    <div class="right">
+      <p>
+        <a [routerLink]="menu">
+          {{menu}}
+        </a>
+      </p>
+    </div>
+  </div>
+</div>

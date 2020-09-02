@@ -1,0 +1,58 @@
+@import 'https://fonts.googleapis.com/css?family=Space+Mono';
+
+p {
+font-family: 'Space Mono';
+font-size: 75px;
+line-height: 32px;
+font-weight: 1;
+/* text-transform: uppercase; */
+
+}
+
+/* a:hover::after {
+  display: inline-block;
+    width: 36px;
+    height: 36px;
+    content: "";
+    background: url("../../../assets/image/previous.svg") no-repeat 0 0;
+    background-size: 100%;
+
+
+} */
+
+.test {
+  /* font-weight: bold; */
+}
+p > a {
+  color: #46478B;
+  text-shadow: 0 5px 10px rgba(0,0,0,0.50);
+  text-decoration: none;
+}
+
+p >  a:hover {
+color: #DBC95C;
+font-size: 85px;
+font-weight: 900;
+}
+
+#container {
+  /* border: 1px red solid; */
+   margin: 13% 10%;
+  padding:0;
+  margin: 0;
+  height: 500px;
+  margin: 8% 10%;
+}
+
+.row {
+  /* border: 1px blue solid; */
+  height: 20%;
+  display: flex;
+}
+
+.right {
+  /* border:1px pink solid; */
+  width: 100%;
+  flex:5;
+}
+
