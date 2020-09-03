@@ -1,0 +1,65 @@
+.container {
+    /* border: 1px red solid; */
+    width: 50%;
+    margin: 0 auto;
+}
+/* ---------------------- */
+/* INSCRIPTION BUTTON CSS */
+/* ---------------------- */
+
+label {
+    color:  white;
+}
+
+
+#email, #pseudo, #password, #confirm_password, #gamer_tag{
+    border-bottom: 1px #DBD159 solid;
+    /* background: url('../../../assets/image/arrow-down-filled-triangle.svg') no-repeat right;
+    background-size: 10px 20px; */
+}
+/* ---------------------- */
+/* INSCRIPTION BUTTON CSS */
+/* ---------------------- */
+
+.btn-inscription {
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: #DBD159;
+    font-size: 20px;
+}
+
+.btn-inscription::after {
+    background-image: url('../../../assets/image/arrow-down-filled-triangle.svg');
+    background-size: 10px 20px;
+    position: relative;
+    top: 15px;
+    display:inline-block;
+    width: 10px; 
+    height: 20px;
+    content:"";
+}
+
+
+/* ------------------ */
+/* SELECTED INPUT CSS */
+/* ------------------ */
+.browser-default{
+    appearance: none;
+    background: url('../../../assets/image/arrow-down-filled-triangle.svg') no-repeat right;
+    background-size: 10px 20px;
+    background-color: #0C0C28;
+    color: white;
+    border:transparent;
+    border-bottom: 1px  #DBD159 solid;
+}
+
+.browser-default:active,
+.browser-default:focus,
+.browser-default:checked,
+.browser-default::selection
+{
+    outline: none !important;
+   
+    
+}

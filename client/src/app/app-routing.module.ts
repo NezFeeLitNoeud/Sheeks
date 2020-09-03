@@ -5,7 +5,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 
 const routes: Routes = [
   {path: '', component: NavbarComponent},
-  {path: 'inscription', component: InscriptionComponent},
+  {path: 'Inscription', component: InscriptionComponent},
   // {path: '**', component: Component Pour page pas trouver}
 ];
 
