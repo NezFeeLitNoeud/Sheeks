@@ -1,10 +1,11 @@
 package com.finalproject.sheeks.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table( name = "users")
-public class UserEntity {
+public class User {
 
     @Id
     private String pseudo;
@@ -21,17 +22,32 @@ public class UserEntity {
     @Column(nullable = false)
     private String plateform;
 
-    public UserEntity() {
+    @ManyToMany
+    @JoinTable(
+            name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_pseudo"),
+            inverseJoinColumns = @JoinColumn(name = "role_name"))
+    private List<Role> roles;
+
+    public User() {
     }
 
-    public UserEntity(String pseudo, String email, String password, String gamertag, String plateform) {
+    public User(String pseudo, String email, String password, String gamertag, String plateform, Role... roles) {
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
         this.gamertag = gamertag;
         this.plateform = plateform;
+        this.roles = List.of(roles);
     }
 
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
 
     public String getPseudo() {
         return pseudo;
