@@ -1,0 +1,51 @@
+h1 {
+    color: #484490;
+    margin-left: 10%;
+    letter-spacing: 10px;
+    /* text-align: center; */
+}
+
+table, tr{
+   border: none;
+}
+
+table {
+    width: 90%;
+    margin: 10% auto;
+}
+
+td {
+    /* border: 1px white solid; */
+    height: 70px;
+    text-align: center;
+}
+
+.en-tete {
+    color: white;
+    font-size: 20px;
+}
+
+.en-tete > td::after {
+    background-image: url('../../../assets/image/arrow-down-filled-triangle.svg');
+    background-size: 10px 20px;
+    position: relative;
+    top: 15px;
+    display:inline-block;
+    width: 10px; 
+    height: 20px;
+    content:"";
+}
+
+.table-body:hover {
+background-color: #484490;
+cursor: pointer;
+}
+
+.table-body > td:first-child{
+    font-weight: bold;
+    font-size: 15px;
+} 
+
+.table-body > td {
+    font-size: 11px;
+}

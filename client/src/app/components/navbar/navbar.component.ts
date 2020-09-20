@@ -18,8 +18,11 @@ Menu: String[] = [
   constructor() { }
 
   ngOnInit() {
-    
-    console.log(this.Menu[0]);
+
+  }
+
+  loggedIn(): boolean {
+    return localStorage.getItem('token') && localStorage.getItem('token').length !==0;
   }
 
 

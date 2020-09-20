@@ -5,13 +5,30 @@
 </div> -->
 
 <div id="container">
-  <div class="row" *ngFor="let menu of Menu">
-    <div class="right">
+  <div class="img-container">
+      <img class="responsive-img center-align" src="./../../../assets/image/Rectangle/Plan de travail 2 copie.svg" alt="">
+  </div>
+  <div id="row" class="center">
       <p>
-        <a [routerLink]="menu">
-          {{menu}}
-        </a>
+        <a routerLink="More">More</a>
       </p>
-    </div>
+      <p>
+        <a routerLink="Recherche">Recherche</a>
+      </p>
+      <p>
+        <a routerLink="Poster">Poster</a>
+      </p>
+      <p *ngIf="!loggedIn()">
+        <a routerLink="Connexion">Connexion</a>
+      </p>
+      <p *ngIf="!loggedIn()">
+        <a routerLink="Inscription">Inscription</a>
+      </p>
+      <p *ngIf="loggedIn()">
+        <a routerLink="Profil">Profil</a>
+      </p>
+      <p *ngIf="loggedIn()">
+        <a routerLink="Logout">Deconnexion</a>
+      </p>
   </div>
 </div>

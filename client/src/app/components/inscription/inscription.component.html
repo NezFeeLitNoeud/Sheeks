@@ -1,44 +1,46 @@
-
-
+<app-previous></app-previous>
 <div class="container center">
   <h1>Inscription</h1>
-    <form class="col s12">
+    <form name="form" (ngSubmit)="registerForm.form.valid && register()" #registerForm="ngForm" class="col s12">
       <div class="row">
         <div class="input-field col offset-s2 s4">
-          <input id="pseudo" type="text" class="validate">
+          <input id="pseudo" name="pseudo" [(ngModel)]="model.pseudo" #pseudo="ngModel" type="text" class="validate" required>
           <label for="pseudo">Pseudo</label>
         </div>
         <div class="input-field col offset-s1 s4">
-            <input id="email" type="email" class="validate">
+            <input id="email" type="email" name="email"  email [(ngModel)]="model.email" #email="ngModel" class="validate" required>
             <label for="email">Email</label>
+            <p class="alert" *ngIf="email.errors?.email">Your email is not valid.</p>
           </div>
       </div>
       <div class="row">
         <div class="input-field col offset-s2 s4">
-          <input id="password" type="password" class="validate">
+          <input id="password" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" class="validate" required>
           <label for="password">Password</label>
+          <p class="alert" *ngIf="!passwordMatch">Your passwords doesn't match</p>
         </div>
         <div class="input-field col col offset-s1 s4">
-            <input id="confirm_password" type="password" class="validate">
+            <input id="confirm_password" type="password" name="confPassword" [(ngModel)]="model.confPassword" #confPassword="ngModel" class="validate" required>
             <label for="confirm_password">Conformation password</label>
           </div>
       </div>
       <div class="row">
         <div class="input-field col offset-s2 s4">
-            <input id="gamer_tag" type="text" class="validate">
+            <input id="gamer_tag" type="text" name="gamertag" [(ngModel)]="model.gamertag" #gamertag="ngModel" class="validate" required>
             <label for="gamer_tag">Gamertag</label>
         </div>
         <div class="input-field col col offset-s1 s4">
-            <select class="browser-default" name="" id="">
-                <option value="">Choose your plateform</option>
-                <option value="">PS4</option>
-                <option value="">Xbox</option>
-                <option value="">PC</option>
+            <select class="browser-default" name="plateforme" [(ngModel)]="model.plateforme" #plateforme="ngModel" required>
+                <option value="none">Choose your plateform</option>
+                <option value="PS4">PS4</option>
+                <option value="xBox">Xbox</option>
+                <option value="PC">PC</option>
+                <option value="Switch">Switch</option>
             </select>
         </div>
       </div>
       <div class="row">
-        <button class="col offset-s8 s3 btn-inscription">
+        <button type="submit" class="col offset-s8 s3 btn-inscription">
             M'INSCRIRE
         </button>
       </div>

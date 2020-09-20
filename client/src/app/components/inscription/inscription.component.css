@@ -17,49 +17,15 @@ label {
     /* background: url('../../../assets/image/arrow-down-filled-triangle.svg') no-repeat right;
     background-size: 10px 20px; */
 }
-/* ---------------------- */
-/* INSCRIPTION BUTTON CSS */
-/* ---------------------- */
 
-.btn-inscription {
-    font-weight: bold;
-    background: none;
-    border: none;
-    color: #DBD159;
-    font-size: 20px;
-}
-
-.btn-inscription::after {
-    background-image: url('../../../assets/image/arrow-down-filled-triangle.svg');
-    background-size: 10px 20px;
-    position: relative;
-    top: 15px;
-    display:inline-block;
-    width: 10px; 
-    height: 20px;
-    content:"";
-}
-
-
-/* ------------------ */
-/* SELECTED INPUT CSS */
-/* ------------------ */
-.browser-default{
-    appearance: none;
-    background: url('../../../assets/image/arrow-down-filled-triangle.svg') no-repeat right;
-    background-size: 10px 20px;
-    background-color: #0C0C28;
+ /* label focus color */
+ .input-field input[type=text]:focus + label, .input-field input[type=email]:focus + label, .input-field input[type=password]:focus + label {
     color: white;
-    border:transparent;
-    border-bottom: 1px  #DBD159 solid;
-}
-
-.browser-default:active,
-.browser-default:focus,
-.browser-default:checked,
-.browser-default::selection
-{
-    outline: none !important;
-   
     
+
 }
+/* label underline focus color */
+  .input-field input[type=text]:focus, .input-field input[type=email]:focus, .input-field input[type=password]:focus  {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }
