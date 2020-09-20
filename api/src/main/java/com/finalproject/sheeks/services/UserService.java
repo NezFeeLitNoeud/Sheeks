@@ -5,7 +5,12 @@ import com.finalproject.sheeks.entities.User;
 import com.finalproject.sheeks.repositories.IUserRepository;
 import com.finalproject.sheeks.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+import java.util.Optional;
 
 @Service
 public class UserService implements IUserService {
@@ -16,10 +21,29 @@ public class UserService implements IUserService {
     @Autowired
     private IUserRepository userRepository;
 
+    @Autowired
+    private UserDetailsService userDetailsService;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
+    @Override
+    public void verifyUser(String pseudo, String password) {
+        UserDetails user = userDetailsService.loadUserByUsername(pseudo);
+        if (!passwordEncoder.matches(password, user.getPassword())) {
+            throw new BadCredentialsException("bad credentials " + pseudo);
+        }
+    }
+
+    @Override
+    public Optional<User> getUser(String pseudo) {
+        return userRepository.findById(pseudo);
+    }
+
     @Override
     public void registerUser(String pseudo, String email, String password, String gamertag, String plateform) {
         Role roleUser = roleRepository.findById("USER").orElseThrow();
-        User user = new User(pseudo, email, password, gamertag, plateform, roleUser);
+        User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, plateform, roleUser);
 
         userRepository.save(user);
     }
