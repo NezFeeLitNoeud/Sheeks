@@ -10,8 +10,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.Optional;
-
 @Service
 public class UserService implements IUserService {
 
@@ -36,13 +34,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Optional<User> getUser(String pseudo) {
-        return userRepository.findById(pseudo);
+    public User getUser(String pseudo) {
+        return userRepository.findByUsername(pseudo);
     }
 
     @Override
     public void registerUser(String pseudo, String email, String password, String gamertag, String plateform) {
-        Role roleUser = roleRepository.findById("USER").orElseThrow();
+        Role roleUser = roleRepository.findById((long) 1).orElseThrow();
         User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, plateform, roleUser);
 
         userRepository.save(user);

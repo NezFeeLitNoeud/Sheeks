@@ -30,7 +30,7 @@ public class UserControllers {
     }
 
     @GetMapping("/profil/{pseudo}")
-    public Optional<User> findUser(@PathVariable("pseudo") String pseudo) {
+    public User findUser(@PathVariable("pseudo") String pseudo) {
         return userService.getUser(pseudo);
     }
 

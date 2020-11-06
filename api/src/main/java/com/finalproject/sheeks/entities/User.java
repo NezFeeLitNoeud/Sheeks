@@ -4,49 +4,51 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table( name = "users")
+@Table( name = "\"user\"")
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "u_id")
+    private Long id;
+
+    @Column(name = "u_pseudo", nullable = false, unique = true)
     private String pseudo;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "u_email",nullable = false, unique = true)
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "u_password",nullable = false)
     private String password;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "u_gamertag",nullable = false, unique = true)
     private String gamertag;
 
-    @Column(nullable = false)
+    @Column(name = "u_plateform",nullable = false)
     private String plateform;
 
-    @ManyToMany
-    @JoinTable(
-            name = "user_roles",
-            joinColumns = @JoinColumn(name = "user_pseudo"),
-            inverseJoinColumns = @JoinColumn(name = "role_name"))
-    private List<Role> roles;
+    @OneToOne
+    @JoinColumn(name = "u_role")
+    private Role roles;
 
     public User() {
     }
 
-    public User(String pseudo, String email, String password, String gamertag, String plateform, Role... roles) {
+    public User(String pseudo, String email, String password, String gamertag, String plateform, Role roles) {
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
         this.gamertag = gamertag;
         this.plateform = plateform;
-        this.roles = List.of(roles);
-    }
-
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
         this.roles = roles;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPseudo() {
@@ -89,14 +91,11 @@ public class User {
         this.plateform = plateform;
     }
 
-    @Override
-    public String toString() {
-        return "UserEntity{" +
-                ", pseudo='" + pseudo + '\'' +
-                ", email='" + email + '\'' +
-                ", password= ********'" + '\'' +
-                ", gamertag='" + gamertag + '\'' +
-                ", plateform='" + plateform + '\'' +
-                '}';
+    public Role getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Role roles) {
+        this.roles = roles;
     }
 }
