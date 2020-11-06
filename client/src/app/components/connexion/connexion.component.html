@@ -13,6 +13,9 @@
           <div class="input-field col offset-s4 s4">
             <label for="Password">Password</label>
             <input type="password" id="password" name="password" [(ngModel)]="model.password" #password="ngModel">
+            <div *ngIf="isLogged === false">
+              <p style="color:red;">Verifier votre mot de passe et/ou pseudo</p>
+          </div>
           </div>
         </div>
           
