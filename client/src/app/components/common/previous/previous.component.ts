@@ -8,7 +8,7 @@ import { Location } from '@angular/common';
 })
 export class PreviousComponent implements OnInit {
 
-  constructor(private location: Location) { }
+  constructor(public location: Location) { }
 
   ngOnInit(): void {
   }

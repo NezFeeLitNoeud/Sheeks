@@ -1,0 +1,18 @@
+<div *ngIf="annonce">
+    <p>{{annonce.id}}</p>
+    <p>{{annonce.jeux}}</p>
+    <p>{{annonce.message}}</p>
+    <p>{{annonce.titre}}</p>
+    <p>{{annonce.niveau}}</p>
+    <p>{{annonce.plateforme}}</p>
+</div>
+
+<div> Bonjour</div>
+
+<tr *ngFor="let announce of annonce | keyvalue">
+    <td>{{announce.user.pseudo}}</td>
+    <td>{{announce.titre}}</td>
+    <td>{{announce.jeux.nom}}</td>
+    <td>{{announce.niveau}} </td>
+    <td>{{announce.plateforme}}</td>
+  </tr>

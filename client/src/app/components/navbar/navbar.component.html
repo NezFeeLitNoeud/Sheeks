@@ -6,29 +6,29 @@
 
 <div id="container">
   <div class="img-container">
-      <img class="responsive-img center-align" src="./../../../assets/image/Rectangle/Plan de travail 2 copie.svg" alt="">
+      <img class="responsive-img center-align" src="./../../../assets/image/Rectangle/rectangle_jaune.svg" alt="">
   </div>
   <div id="row" class="center">
       <p>
-        <a routerLink="More">More</a>
+        <a routerLink="more">More</a>
       </p>
       <p>
-        <a routerLink="Recherche">Recherche</a>
+        <a routerLink="search">Recherche</a>
       </p>
       <p>
-        <a routerLink="Poster">Poster</a>
+        <a routerLink="poster">Poster</a>
       </p>
       <p *ngIf="!loggedIn()">
-        <a routerLink="Connexion">Connexion</a>
+        <a routerLink="connexion">Connexion</a>
       </p>
       <p *ngIf="!loggedIn()">
-        <a routerLink="Inscription">Inscription</a>
+        <a routerLink="inscription">Inscription</a>
       </p>
       <p *ngIf="loggedIn()">
-        <a routerLink="Profil">Profil</a>
+        <a routerLink="profil">Profil</a>
       </p>
       <p *ngIf="loggedIn()">
-        <a routerLink="Logout">Deconnexion</a>
+        <a routerLink="logout">Deconnexion</a>
       </p>
   </div>
 </div>

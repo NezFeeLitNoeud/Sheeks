@@ -1,16 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { AnnonceService } from 'src/app/services/annonce.service';
+import { Router } from '@angular/router';
+import { AnnonceService } from 'src/app/services/annonce/annonce.service';
 
-interface announceInterface {
-  id: number;
-  jeux: string;
-  message: string;
-  niveau: string;
-  plateforme: string;
-  titre: string;  
-  user_pseudo: string;
-}
 
 @Component({
   selector: 'app-search',
@@ -21,12 +13,17 @@ export class SearchComponent implements OnInit {
 
   annonce: any;
 
-  constructor(private announceService: AnnonceService) { }
+  constructor(private announceService: AnnonceService,
+    public router: Router) { }
 
   ngOnInit(): void {
-    this.announceService.getAnnonce().subscribe(res => this.annonce = res)
+    this.announceService.getEveryAnnonce().subscribe(res => this.annonce = res)
     //this.announceService.getAnnonce().subscribe(res => console.log(res))
 
+  }
+
+  navigateToAnnounce(id: number){
+    this.router.navigateByUrl('search/announce/' + id)
   }
 
 }

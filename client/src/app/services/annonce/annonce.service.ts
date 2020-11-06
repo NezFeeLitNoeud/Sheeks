@@ -8,8 +8,13 @@ export class AnnonceService {
 
   constructor(private http: HttpClient) { }
 
-  public getAnnonce(){
+  public getEveryAnnonce(){
     return this.http
-      .get(`http://localhost:8080/announce`);
+      .get(`http://localhost:8080/search/announce`);
+  }
+
+  public getAnnonceById(id: number){
+    return this.http
+      .get(`http://localhost:8080/search/announce/${id}`);
   }
 }
