@@ -12,7 +12,7 @@
     <tr *ngFor="let announce of annonce" class="table-body">
       <td>{{announce.user_pseudo}}</td>
       <td>{{announce.titre}}</td>
-      <td>{{announce.jeux}}</td>
+      <td>{{announce.jeux.nom}}</td>
       <td>{{announce.niveau}} </td>
       <td>{{announce.plateforme}}</td>
     </tr>
