@@ -1,63 +1,74 @@
 package com.finalproject.sheeks.entities;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Entity(name = "annonce")
+@Entity
+@Table(name = "annonce")
 public class Announce {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long id;
+    @Column(name = "a_id")
+    private Long id;
 
-    @Column(nullable = false, unique = true)
-    //@ManyToOne
-   // @JoinColumn(name = "user_pseudo")
-    private String user_pseudo;
+    @OneToOne
+    @JoinColumn(name = "a_user_id")
+    private User user;
 
-    @Column(nullable = false, unique = true)
+    @OneToOne
+    @JoinColumn(name = "a_game_id", nullable = false)
+    //@Column(name = "a_game", nullable = false)
+    private Jeux jeux;
+
+    @Column(name = "a_titre", nullable = false)
     private String titre;
 
-    @Column(nullable = false, unique = true)
-   //@ManyToOne
-    private String Jeux;
+    @Column(name = "a_message",nullable = false)
+    private String message;
 
-    @Column(nullable = false, unique = true)
-    private String plateforme;
-
-    @Column(nullable = false, unique = true)
+    @Column(name = "a_level",nullable = false)
     private String niveau;
 
-    @Column(nullable = false, unique = true)
-    private String message;
+    @Column(name = "a_plateforme",nullable = false)
+    private String plateforme;
 
 
     public Announce() {
     }
 
-    public Announce(long id, String user, String titre, String jeux, String plateforme, String niveau, String message) {
-        this.id = id;
-        this.user_pseudo = user;
+    public Announce(User user, Jeux jeux, String titre, String message, String niveau, String plateforme) {
+
+        this.user = user;
+        this.jeux = jeux;
         this.titre = titre;
-        Jeux = jeux;
-        this.plateforme = plateforme;
-        this.niveau = niveau;
         this.message = message;
+        this.niveau = niveau;
+        this.plateforme = plateforme;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getUser_pseudo() {
-        return user_pseudo;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_pseudo(String user_pseudo) {
-        this.user_pseudo = user_pseudo;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public Jeux getJeux() {
+        return jeux;
+    }
+
+    public void setJeux(Jeux jeux) {
+        this.jeux = jeux;
     }
 
     public String getTitre() {
@@ -68,20 +79,12 @@ public class Announce {
         this.titre = titre;
     }
 
-    public String getJeux() {
-        return Jeux;
+    public String getMessage() {
+        return message;
     }
 
-    public void setJeux(String jeux) {
-        Jeux = jeux;
-    }
-
-    public String getPlateforme() {
-        return plateforme;
-    }
-
-    public void setPlateforme(String plateforme) {
-        this.plateforme = plateforme;
+    public void setMessage(String message) {
+        this.message = message;
     }
 
     public String getNiveau() {
@@ -92,11 +95,11 @@ public class Announce {
         this.niveau = niveau;
     }
 
-    public String getMessage() {
-        return message;
+    public String getPlateforme() {
+        return plateforme;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setPlateforme(String plateforme) {
+        this.plateforme = plateforme;
     }
 }
