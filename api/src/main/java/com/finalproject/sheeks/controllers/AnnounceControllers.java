@@ -3,11 +3,15 @@ package com.finalproject.sheeks.controllers;
 import com.finalproject.sheeks.dtos.AnswerDto;
 import com.finalproject.sheeks.dtos.UserDto;
 import com.finalproject.sheeks.entities.Announce;
+import com.finalproject.sheeks.entities.User;
 import com.finalproject.sheeks.repositories.AnnounceRepository;
+import com.finalproject.sheeks.repositories.AnswerRepository;
 import com.finalproject.sheeks.services.IAnnounceService;
+import com.finalproject.sheeks.services.IAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -19,7 +23,13 @@ public class AnnounceControllers {
     IAnnounceService announceService;
 
     @Autowired
+    IAnswerService answerService;
+
+    @Autowired
     AnnounceRepository announceRepository;
+
+    @Autowired
+    AnswerRepository answerRepository;
 
     @GetMapping("/search/announce")
     public List<Announce> getAnnounce(){
@@ -35,5 +45,10 @@ public class AnnounceControllers {
     @PostMapping("/search/post")
     public void postAnnounce(@RequestBody AnswerDto answer){
         // Methode avec laquelle on va enregistrer la reponse dans la BDD.
+    }
+
+    @PostMapping("search/announce/answer")
+    public void postAnswerToAnnounce(@RequestBody AnswerDto answer){
+        answerService.addAnswer(answer.getUser_id(), answer.getAnnounce_id(), answer.getCreation_date(), answer.getMessage());
     }
 }

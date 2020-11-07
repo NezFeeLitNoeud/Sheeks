@@ -8,5 +8,5 @@ import java.util.Date;
 
 public interface IAnswerService {
 
-    public void addAnnounce(User user_id, Announce announce_id, LocalDateTime creation_date, String message);
+    public void addAnswer(User user_id, Announce announce_id, LocalDateTime creation_date, String message);
 }

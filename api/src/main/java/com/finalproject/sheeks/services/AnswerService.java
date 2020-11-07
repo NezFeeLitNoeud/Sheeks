@@ -17,7 +17,7 @@ public class AnswerService implements IAnswerService{
     AnswerRepository answerRepository;
 
     @Override
-    public void addAnnounce(User user_id, Announce announce_id, LocalDateTime creation_date, String message) {
+    public void addAnswer(User user_id, Announce announce_id, LocalDateTime creation_date, String message) {
         LocalDateTime currentDateTime = LocalDateTime.now();
         Answer answer = new Answer(user_id, announce_id, message, currentDateTime);
         answerRepository.save(answer);
