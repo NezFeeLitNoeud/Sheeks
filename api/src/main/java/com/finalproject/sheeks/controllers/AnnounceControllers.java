@@ -3,6 +3,7 @@ package com.finalproject.sheeks.controllers;
 import com.finalproject.sheeks.dtos.AnswerDto;
 import com.finalproject.sheeks.dtos.UserDto;
 import com.finalproject.sheeks.entities.Announce;
+import com.finalproject.sheeks.entities.Answer;
 import com.finalproject.sheeks.entities.User;
 import com.finalproject.sheeks.repositories.AnnounceRepository;
 import com.finalproject.sheeks.repositories.AnswerRepository;
@@ -45,6 +46,11 @@ public class AnnounceControllers {
     @PostMapping("/search/post")
     public void postAnnounce(@RequestBody AnswerDto answer){
         // Methode avec laquelle on va enregistrer la reponse dans la BDD.
+    }
+
+    @GetMapping("/search/announce/{id}/answer")
+    public List<Answer> getAnswerToAnnounce(@PathVariable("id") Announce id){
+       return answerService.getAnswerByAnnounceId(id);
     }
 
     @PostMapping("search/announce/answer")

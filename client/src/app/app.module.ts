@@ -12,6 +12,8 @@ import { LogoutComponent } from './components/User/logout/logout.component';
 import { SearchComponent } from './components/Recherche/home/search.component';
 import { PreviousComponent } from './components/common/previous/previous.component';
 import { DisplaySearchComponent } from './components/Recherche/display-search/display-search.component';
+import { PostComponent } from './components/post/post.component';
+import { AnswerComponent } from './components/Recherche/answer/answer.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { DisplaySearchComponent } from './components/Recherche/display-search/di
     LogoutComponent,
     SearchComponent,
     PreviousComponent,
-    DisplaySearchComponent
+    DisplaySearchComponent,
+    PostComponent,
+    AnswerComponent
   ],
   imports: [
     BrowserModule,

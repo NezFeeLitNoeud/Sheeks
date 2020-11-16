@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class AnswerService implements IAnswerService{
@@ -22,4 +23,11 @@ public class AnswerService implements IAnswerService{
         Answer answer = new Answer(user_id, announce_id, message, currentDateTime);
         answerRepository.save(answer);
     }
+
+    @Override
+    public List<Answer> getAnswerByAnnounceId(Announce id) {
+        return answerRepository.findAnswerByAnnounceId(id);
+    }
+
+
 }
