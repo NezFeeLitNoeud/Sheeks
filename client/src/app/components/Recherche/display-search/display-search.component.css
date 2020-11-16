@@ -1,0 +1,38 @@
+.annonce-card {
+    /* border: 1px white solid; */
+    width: 50%;
+    color: #484490;
+    margin: 15% 10%;
+}
+
+.user-info {
+    /* border: 1px green solid; */
+    line-height: 5px;
+    display: flex;
+}
+
+.material-icons {
+    font-size: 100px;
+}
+
+.col.right {
+    flex:3;
+    padding: 15px;
+}
+
+.col.left {
+    flex:0.5;
+}
+.annonce-info{
+    padding: 5px;
+    background-color: #dbc95b;
+    /* border: 1px orange solid; */
+    border-radius: 10px;
+} 
+
+.en-tete {
+    /* border: 1px red solid; */
+    font-size: 10px;
+    color: grey;
+}
+

@@ -1,20 +1,32 @@
-<div *ngIf="annonce">
-    <p>{{annonce.id}}</p>
-    <p>{{annonce.jeux}}</p>
+<!-- <div *ngIf="annonce" class="card purple col s6 m4">
+    <p>{{annonce.user.pseudo}}</p>
+    <p>{{annonce.plateforme}}</p>
+
+    <p>{{annonce.jeux.nom}}</p>
     <p>{{annonce.message}}</p>
     <p>{{annonce.titre}}</p>
     <p>{{annonce.niveau}}</p>
-    <p>{{annonce.plateforme}}</p>
+ 
+</div> -->
+
+<div class="annonce-card">
+    <div class="user-info">
+        <div class="col left">
+           <i class="material-icons white circle">face</i> 
+        </div>
+        <div class="col right">
+            <p>{{annonce.user.pseudo}}</p>
+            <p>{{annonce.plateforme}}</p>
+            <p>{{annonce.user.gamertag}}</p>
+        </div>
+       
+    </div>
+    <div class="annonce-info">
+        <div class="en-tete">
+            <p>Titre : {{annonce.titre}} Niveau : {{annonce.niveau}}</p>
+        </div>
+        <p>{{annonce.message}}</p>
+    </div>
 </div>
 
-<div> Bonjour</div>
-<!-- 
-<tr *ngFor="let announce of annonce | keyvalue">
-    <td>{{announce.user.pseudo}}</td>
-    <td>{{announce.titre}}</td>
-    <td>{{announce.jeux.nom}}</td>
-    <td>{{announce.niveau}} </td>
-    <td>{{announce.plateforme}}</td>
-  </tr> -->
-
-  <app-answer></app-answer>
+  <!-- <app-answer *ngIf="annonce" [id]="annonce.id"></app-answer> -->

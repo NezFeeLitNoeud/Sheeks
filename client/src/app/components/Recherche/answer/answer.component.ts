@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AnnonceService } from 'src/app/services/annonce/annonce.service';
+import { IAnnonce } from '../../interface/IAnnounce';
+import { IAnswer } from '../../interface/IAnswer';
 
 @Component({
   selector: 'app-answer',
@@ -7,14 +9,18 @@ import { AnnonceService } from 'src/app/services/annonce/annonce.service';
   styleUrls: ['./answer.component.css']
 })
 export class AnswerComponent implements OnInit {
-answer: any;
+  @Input() id:number;
+
+  answer: any;
+  annonceId: number;
   constructor(public announceService: AnnonceService) { }
 
   ngOnInit(): void {
-    this.announceService.getAnswerFromAnnounce(1).subscribe(res => {
+    this.annonceId = this.id
+    this.announceService.getAnswerFromAnnounce(this.annonceId).subscribe(res => {
       this.answer = res;
-      console.log(this.answer);
+    console.log(this.answer);
     });
+   
   }
-
 }

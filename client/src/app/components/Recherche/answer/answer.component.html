@@ -1,4 +1,7 @@
-<p>answer works!</p>
-<div *ngFor="answers of answer">
-<p>{{answers[0].message}}</p>
+
+<div class="cardd" *ngFor="let answers of answer, let index = index">
+<p>Message : {{answers.message}}</p>
+<p>Auteur : {{answers.user_id.pseudo}}</p>
+<p>Id : {{answers.id}}</p>
+<p>Creation : {{answers.creation_date}}</p>
 </div>

@@ -32,11 +32,11 @@ export class DisplaySearchComponent implements OnInit {
     console.log(this.id);
 
     this.announceService.getAnnonceById(this.id).subscribe(res => {
-this.annonce = res;
+    this.annonce = res;
         console.log(this.annonce)
-    })
-  
-    
+      
+    })  
+
   }
 
 }
