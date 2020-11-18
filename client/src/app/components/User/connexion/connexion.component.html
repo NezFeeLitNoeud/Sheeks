@@ -15,7 +15,8 @@
             <input type="password" id="password" name="password" [(ngModel)]="model.password" #password="ngModel">
             <div *ngIf="isLogged === false">
               <p style="color:red;">Verifier votre mot de passe et/ou pseudo</p>
-          </div>
+            </div>
+            <p id="connect">Pas encore de compte ? <a routerLink="/inscription">Inscrivez-vous.</a></p>
           </div>
         </div>
           

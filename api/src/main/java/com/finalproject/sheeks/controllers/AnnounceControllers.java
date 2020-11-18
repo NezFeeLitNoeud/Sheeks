@@ -53,7 +53,7 @@ public class AnnounceControllers {
        return answerService.getAnswerByAnnounceId(id);
     }
 
-    @PostMapping("search/announce/answer")
+    @PostMapping("/search/answer")
     public void postAnswerToAnnounce(@RequestBody AnswerDto answer){
         answerService.addAnswer(answer.getUser_id(), answer.getAnnounce_id(), answer.getCreation_date(), answer.getMessage());
     }

@@ -10,4 +10,7 @@ public interface AnnounceRepository  extends JpaRepository<Announce, Long> {
 
     //@Query("SELECT a FROM Announce a WHERE a.id = :id")
     //User findById(@Param("id") Long id);
+
+    @Query("SELECT a FROM Announce a WHERE a.id = :id")
+    Announce findAnnounceById(@Param("id") Long id);
 }

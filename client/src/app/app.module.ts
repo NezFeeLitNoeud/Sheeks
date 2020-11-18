@@ -14,6 +14,7 @@ import { PreviousComponent } from './components/common/previous/previous.compone
 import { DisplaySearchComponent } from './components/Recherche/display-search/display-search.component';
 import { PostComponent } from './components/post/post.component';
 import { AnswerComponent } from './components/Recherche/answer/answer.component';
+import { ProfilComponent } from './components/User/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AnswerComponent } from './components/Recherche/answer/answer.component'
     PreviousComponent,
     DisplaySearchComponent,
     PostComponent,
-    AnswerComponent
+    AnswerComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

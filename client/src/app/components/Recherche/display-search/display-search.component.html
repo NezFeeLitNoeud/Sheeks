@@ -8,8 +8,8 @@
     <p>{{annonce.niveau}}</p>
  
 </div> -->
-
-<div class="annonce-card">
+<h1>{{titleGame}}</h1>
+<div *ngIf="annonce" class="annonce-card">
     <div class="user-info">
         <div class="col left">
            <i class="material-icons white circle">face</i> 
@@ -23,10 +23,10 @@
     </div>
     <div class="annonce-info">
         <div class="en-tete">
-            <p>Titre : {{annonce.titre}} Niveau : {{annonce.niveau}}</p>
+            <p>Titre : {{annonce.titre}} | Niveau : {{annonce.niveau}}</p>
         </div>
         <p>{{annonce.message}}</p>
     </div>
 </div>
 
-  <!-- <app-answer *ngIf="annonce" [id]="annonce.id"></app-answer> -->
+  <app-answer *ngIf="annonce" [id]="annonce.id"></app-answer>

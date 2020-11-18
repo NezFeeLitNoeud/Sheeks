@@ -15,6 +15,10 @@ password: password
 })
 }
 
+public getUser() {
+  return this.http.get(this.url +`user`);
+}
+
 public register(pseudo:string, email:string, password:string, gamertag:string, plateforme: string) {
 
   return this.http

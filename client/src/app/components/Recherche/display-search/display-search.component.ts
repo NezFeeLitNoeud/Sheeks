@@ -26,6 +26,7 @@ export class DisplaySearchComponent implements OnInit {
 
     id: any;
     annonce: any;
+    titleGame: string;
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
@@ -36,6 +37,7 @@ export class DisplaySearchComponent implements OnInit {
         console.log(this.annonce)
       
     })  
+    this.titleGame = localStorage.getItem("game");
 
   }
 

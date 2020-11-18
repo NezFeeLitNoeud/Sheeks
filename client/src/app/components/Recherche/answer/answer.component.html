@@ -1,7 +1,48 @@
-
+<!-- 
 <div class="cardd" *ngFor="let answers of answer, let index = index">
 <p>Message : {{answers.message}}</p>
 <p>Auteur : {{answers.user_id.pseudo}}</p>
 <p>Id : {{answers.id}}</p>
 <p>Creation : {{answers.creation_date}}</p>
+</div>
+ -->
+<div class="container-card">
+    <div *ngFor="let answers of answer, let index = index" class="annonce-card">
+        <div class="user-info">
+            <div class="col left">
+               <i class="material-icons white circle">face</i> 
+            </div>
+            <div class="col right">
+                <p>{{answers.user_id.pseudo}}</p>
+                <p>{{answers.user_id.plateforme}}</p>
+                <p>{{answers.user_id.gamertag}}</p>
+            </div>
+           
+        </div>
+        <div class="annonce-info">
+            <div class="en-tete">
+                <p>Date : {{answers.creation_date}}</p>
+            </div>
+            <p>{{answers.message}}</p>
+        </div>
+    </div>
+    
+    <button *ngIf="!isAnswering" class="btn-inscription" (click)="answering()">Répondre</button>
+    
+    <div *ngIf="isAnswering" class="container center">
+          <form name="form" (ngSubmit)="registerForm.form.valid && sentResponse()" #registerForm="ngForm" class="col s12">
+            <div class="row">
+              <div class="input-field col offset-s2 s4">
+                <input id="message" name="message" [(ngModel)]="model.message" #message="ngModel" type="text" class="validate" required>
+                <label for="message">message</label>
+              </div>
+            </div>
+            <div class="row" >
+              <button type="submit" class="col offset-s8 s3 btn-inscription">
+                  REPONDRE
+              </button>
+            </div>
+
+          </form>
+        </div>
 </div>

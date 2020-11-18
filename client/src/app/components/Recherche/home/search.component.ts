@@ -22,8 +22,9 @@ export class SearchComponent implements OnInit {
 
   }
 
-  navigateToAnnounce(id: number){
+  navigateToAnnounce(id: number, nom: string){
     this.router.navigateByUrl('search/announce/' + id)
+    localStorage.setItem('game', nom);
   }
 
 }

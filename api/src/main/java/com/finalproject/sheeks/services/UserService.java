@@ -6,6 +6,7 @@ import com.finalproject.sheeks.repositories.IUserRepository;
 import com.finalproject.sheeks.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,8 +35,11 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User getUser(String pseudo) {
-        return userRepository.findByUsername(pseudo);
+    public Object getUser() {
+
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        return principal;
     }
 
     @Override

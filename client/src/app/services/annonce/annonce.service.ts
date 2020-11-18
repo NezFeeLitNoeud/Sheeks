@@ -35,4 +35,14 @@ public getAnswerFromAnnounce(id: number){
 return this.http
 .get(`http://localhost:8080/search/announce/${id}/answer`);
 }
+
+public answer(pseudo_id: number, annonce_id: number, message: string){
+  return this.http
+  .post('http://localhost:8080/search/answer', {
+pseudo_id: pseudo_id,
+annonce_id: annonce_id,
+message: message,
+
+})
+}
 }

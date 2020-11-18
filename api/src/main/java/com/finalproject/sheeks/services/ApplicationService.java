@@ -51,7 +51,7 @@ public class ApplicationService implements IApplicationService {
         User normalUser = new User("Devious", "nepheline.nehlig@gmail.com", passwordEncoder.encode("1234"), "Devious_maid", "PS4", user);
         userRepository.save(normalUser);
 
-        Announce announce = new Announce(adminUser, RL,"Recherche copine", "Recherche Mate niveau D3/C1 sachant rotate et majeur", "Ranked", "PS4");
+        Announce announce = new Announce(normalUser, RL,"Recherche copine", "Recherche Mate niveau D3/C1 sachant rotate et majeur", "Ranked", "PS4");
         announceRepository.save(announce);
         announceRepository.save(new Announce(normalUser,R6, "Veut plus jouer seule", "Recherche du monde pour m'amuser sans prise de tete", "Chill", "PC"));
         announceRepository.save(new Announce(normalUser, RL,"Cherche equipe", "Recherche equipe esport pour monter ensemble", "Ranked", "PC"));

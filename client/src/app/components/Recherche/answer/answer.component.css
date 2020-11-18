@@ -1,3 +1,44 @@
-.cardd {
-    border: 1px red solid;
+
+.container-card {
+    margin: -5% auto;
+}
+
+.annonce-card {
+    width: 70%;
+    color: #484490;
+    margin: 5% 15%;
+}
+
+.user-info {
+    line-height: 5px;
+    display: flex;
+}
+
+.material-icons {
+    font-size: 100px;
+}
+
+.col.right {
+    flex:3;
+    padding: 30px;
+}
+
+.col.left {
+    flex:0.5;
+}
+.annonce-info{
+    padding: 20px 5px 5px 50px;
+    background-color: #dbc95b;
+    border-radius: 10px;
+    height: 150px;
+} 
+
+.en-tete {
+    font-size: 10px;
+    color: grey;
+    text-align: center;
+}
+
+.btn-inscription {
+    margin-left: 60%;
 }

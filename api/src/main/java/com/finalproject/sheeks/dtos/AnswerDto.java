@@ -1,6 +1,7 @@
 package com.finalproject.sheeks.dtos;
 
 import com.finalproject.sheeks.entities.Announce;
+import com.finalproject.sheeks.entities.Answer;
 import com.finalproject.sheeks.entities.User;
 import com.sun.istack.NotNull;
 
@@ -14,12 +15,12 @@ public class AnswerDto {
     @NotNull
     @NotEmpty
     @Size(max = 256)
-    private User user_id;
+    private Long user_id;
 
     @NotNull
     @NotEmpty
     @Size(max = 256)
-    private Announce announce_id;
+    private Long announce_id;
 
     @NotNull
     @NotEmpty
@@ -35,26 +36,26 @@ public class AnswerDto {
     public AnswerDto() {
     }
 
-    public AnswerDto(User user_id, Announce announce_id, String message, LocalDateTime creation_date) {
+    public AnswerDto(Long user_id, Long announce_id, String message, LocalDateTime creation_date) {
         this.user_id = user_id;
         this.announce_id = announce_id;
         this.message = message;
         this.creation_date = creation_date;
     }
 
-    public User getUser_id() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(User user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
-    public Announce getAnnounce_id() {
+    public Long getAnnounce_id() {
         return announce_id;
     }
 
-    public void setAnnounce_id(Announce announce_id) {
+    public void setAnnounce_id(Long announce_id) {
         this.announce_id = announce_id;
     }
 
