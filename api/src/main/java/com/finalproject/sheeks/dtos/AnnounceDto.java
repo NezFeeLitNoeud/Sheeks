@@ -1,21 +1,45 @@
 package com.finalproject.sheeks.dtos;
 
 import com.finalproject.sheeks.entities.Announce;
+import com.sun.istack.NotNull;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class AnnounceDto {
-
+    @NotNull
+    @NotEmpty
+    @Size(max = 256)
     private long id;
 
+    @NotNull
+    @NotEmpty
+    @Size(max = 30)
     private String userPseudo;
 
+    @NotNull
+    @NotEmpty
+    @Size(max = 50)
     private String titre;
 
+    @NotNull
+    @NotEmpty
+    @Size(max = 36)
     private String jeux;
 
+    @NotNull
+    @NotEmpty
+    @Size(max = 10)
     private String plateforme;
 
+    @NotNull
+    @NotEmpty
+    @Size(max = 20)
     private String niveau;
 
+    @NotNull
+    @NotEmpty
+    @Size(max = 500)
     private String message;
 
     public AnnounceDto() {

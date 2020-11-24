@@ -26,7 +26,7 @@ td {
 }
 
 .en-tete > td::after {
-    background-image: url('../../../assets/image/arrow-down-filled-triangle.svg');
+    background-image: url('../../../../assets/image/arrow-down-filled-triangle.svg');
     background-size: 10px 20px;
     position: relative;
     top: 15px;

@@ -41,6 +41,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 // requests URL
                 .authorizeRequests()
                 .antMatchers("/api/**").authenticated()
+                //.antMatchers(("delete/**")).hasRole("ADMIN")
                 // authentication type
                 .and().httpBasic()
                 // cors

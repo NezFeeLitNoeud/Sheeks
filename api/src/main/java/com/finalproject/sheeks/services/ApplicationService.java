@@ -1,19 +1,14 @@
 package com.finalproject.sheeks.services;
 
 
-import com.finalproject.sheeks.entities.Announce;
-import com.finalproject.sheeks.entities.Jeux;
-import com.finalproject.sheeks.entities.Role;
-import com.finalproject.sheeks.entities.User;
-import com.finalproject.sheeks.repositories.AnnounceRepository;
-import com.finalproject.sheeks.repositories.IUserRepository;
-import com.finalproject.sheeks.repositories.JeuxRepository;
-import com.finalproject.sheeks.repositories.RoleRepository;
+import com.finalproject.sheeks.entities.*;
+import com.finalproject.sheeks.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 
 @Service
 public class ApplicationService implements IApplicationService {
@@ -29,6 +24,9 @@ public class ApplicationService implements IApplicationService {
 
     @Autowired
     JeuxRepository jeuxRepository;
+
+    @Autowired
+    AnswerRepository answerRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
@@ -53,9 +51,13 @@ public class ApplicationService implements IApplicationService {
         User normalUser = new User("Devious", "nepheline.nehlig@gmail.com", passwordEncoder.encode("1234"), "Devious_maid", "PS4", user);
         userRepository.save(normalUser);
 
-        announceRepository.save(new Announce(adminUser, RL,"Recherche copine", "Recherche Mate niveau D3/C1 sachant rotate et majeur", "Ranked", "PS4"));
+        Announce announce = new Announce(normalUser, RL,"Recherche copine", "Recherche Mate niveau D3/C1 sachant rotate et majeur", "Ranked", "PS4");
+        announceRepository.save(announce);
         announceRepository.save(new Announce(normalUser,R6, "Veut plus jouer seule", "Recherche du monde pour m'amuser sans prise de tete", "Chill", "PC"));
         announceRepository.save(new Announce(normalUser, RL,"Cherche equipe", "Recherche equipe esport pour monter ensemble", "Ranked", "PC"));
+
+        answerRepository.save(new Answer(adminUser, announce, "Bonjour, moi je suis intéréssée !", LocalDateTime.now()));
+        answerRepository.save(new Answer(normalUser, announce, "Cool, envoie moi une demande d'amis à Devious_maid !", LocalDateTime.now()));
 
     }
 }

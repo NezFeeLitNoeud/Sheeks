@@ -1,0 +1,85 @@
+
+.conteneur-card {
+    margin: -5% auto;
+    height: 100%;
+}
+
+.annonce-card {
+    width: 70%;
+    color: #484490;
+    margin: 5% 15% 0% 15%;
+}
+
+.user-info {
+    line-height: 5px;
+    display: flex;
+}
+
+.material-icons {
+    font-size: 100px;
+}
+
+.col.right {
+    flex:3;
+    padding: 30px;
+}
+
+.col.left {
+    flex:0.5;
+}
+.annonce-info{
+    padding: 20px 5px 5px 50px;
+    background-color: #dbc95b;
+    border-radius: 10px;
+    height: 150px;
+} 
+
+.en-tete {
+    font-size: 10px;
+    color: grey;
+    text-align: center;
+}
+
+
+.btn-answer {
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: #DBD159;
+    font-size: 20px;
+    margin-left: 70%;
+    margin-top: 5%;
+}
+
+.btn-answer::after {
+    background-image: url('../../../../assets/image/arrow-down-filled-triangle.svg');
+    background-size: 10px 20px;
+    position: relative;
+    top: 15px;
+    display:inline-block;
+    width: 10px; 
+    height: 20px;
+    content:"";
+}
+
+.btn-answer:hover {
+    cursor: pointer;
+}
+
+#textarea1 {
+    border: none;
+    border-bottom: 1px #DBD159 solid;
+    color: white;
+}
+
+ /* label focus color */
+ textarea:focus + label {
+    color: white;
+    
+    
+}
+/* label underline focus color */
+textarea:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }

@@ -13,5 +13,9 @@ public interface IUserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u FROM User u WHERE u.pseudo = :pseudo")
     User findByUsername(@Param("pseudo") String name);
 
+    @Query("SELECT u.id FROM User u WHERE u.pseudo = :pseudo")
+    int findIdByUsername(@Param("pseudo") String name);
 
+    @Query("SELECT u FROM User u WHERE u.id = :id")
+    User findUserById(@Param("id") Long id);
 }

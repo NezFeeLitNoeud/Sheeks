@@ -6,6 +6,7 @@ import com.finalproject.sheeks.repositories.IUserRepository;
 import com.finalproject.sheeks.repositories.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -34,15 +35,19 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public User getUser(String pseudo) {
-        return userRepository.findByUsername(pseudo);
-    }
-
-    @Override
     public void registerUser(String pseudo, String email, String password, String gamertag, String plateform) {
         Role roleUser = roleRepository.findById((long) 1).orElseThrow();
         User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, plateform, roleUser);
 
         userRepository.save(user);
     }
+
+    @Override
+    public User getLoggedUser() {
+        String authentication = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByUsername(authentication);
+
+        return user;
+    }
+
 }

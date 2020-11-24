@@ -8,11 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 Menu: String[] = [
-"More",
-"Recherche",
-"Poster",
-"Connexion",
-"Inscription"
+"more",
+"recherche",
+"poster",
+"connexion",
+"inscription"
 ];
 
   constructor() { }
