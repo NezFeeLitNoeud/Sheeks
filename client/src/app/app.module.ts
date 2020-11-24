@@ -6,11 +6,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { InscriptionComponent } from './components/inscription/inscription.component';
-import { ConnexionComponent } from './components/connexion/connexion.component';
-import { LogoutComponent } from './components/logout/logout.component';
-import { SearchComponent } from './components/search/search.component';
+import { InscriptionComponent } from './components/User/inscription/inscription.component';
+import { ConnexionComponent } from './components/User/connexion/connexion.component';
+import { LogoutComponent } from './components/User/logout/logout.component';
+import { SearchComponent } from './components/Recherche/home/search.component';
 import { PreviousComponent } from './components/common/previous/previous.component';
+import { DisplaySearchComponent } from './components/Recherche/display-search/display-search.component';
+import { PostComponent } from './components/post/post.component';
+import { AnswerComponent } from './components/Recherche/answer/answer.component';
+import { ProfilComponent } from './components/User/profil/profil.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,14 +25,19 @@ import { PreviousComponent } from './components/common/previous/previous.compone
     ConnexionComponent,
     LogoutComponent,
     SearchComponent,
-    PreviousComponent
+    PreviousComponent,
+    DisplaySearchComponent,
+    PostComponent,
+    AnswerComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

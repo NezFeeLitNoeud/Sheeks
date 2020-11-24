@@ -23,7 +23,7 @@ isLogged: boolean;
   login() {
     this.userService.login(this.model.pseudo, this.model.password)
       .subscribe(() => {
-          let base64hash = btoa(this.model.username + ':' + this.model.password);
+          let base64hash = btoa(this.model.pseudo + ':' + this.model.password);
           localStorage.setItem('token', base64hash);
           localStorage.setItem('pseudo', this.model.pseudo)
           this.isLogged = true;

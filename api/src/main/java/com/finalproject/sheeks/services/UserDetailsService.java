@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -24,12 +25,13 @@ public class UserDetailsService implements IUserDetailsService{
     @Override
     @Transactional
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findById(username)
-                .orElseThrow(() -> new UsernameNotFoundException("user not found " + username));
-        List<Role> roles = user.getRoles();
-        Set<GrantedAuthority> authorities = roles.stream()
+        User user = userRepository.findByUsername(username);
+        List<Role> roles = new ArrayList<>();
+        roles.add(user.getRoles());
+       Set<GrantedAuthority> authorities = roles.stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName()))
                 .collect(toSet());
+
         return new org.springframework.security.core.userdetails.User(
                 user.getPseudo(), user.getPassword(), authorities);
     }

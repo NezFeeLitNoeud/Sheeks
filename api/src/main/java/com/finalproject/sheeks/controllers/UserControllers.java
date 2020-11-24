@@ -1,12 +1,17 @@
 package com.finalproject.sheeks.controllers;
 
 import com.finalproject.sheeks.dtos.UserDto;
+import com.finalproject.sheeks.entities.Announce;
 import com.finalproject.sheeks.entities.User;
 import com.finalproject.sheeks.repositories.IUserRepository;
 import com.finalproject.sheeks.services.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.Optional;
 
 @CrossOrigin
@@ -29,9 +34,14 @@ public class UserControllers {
         userService.registerUser(user.getPseudo(), user.getEmail(), user.getPassword(), user.getGamertag(), user.getPlateform());
     }
 
-    @GetMapping("/profil/{pseudo}")
-    public Optional<User> findUser(@PathVariable("pseudo") String pseudo) {
-        return userService.getUser(pseudo);
+    @GetMapping("/user")
+    public User getUser() {
+
+        User loggedUser = userService.getLoggedUser();
+
+        return loggedUser;
+
+
     }
 
 }
