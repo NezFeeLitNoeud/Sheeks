@@ -17,8 +17,9 @@ export class SearchComponent implements OnInit {
     public router: Router) { }
 
   ngOnInit(): void {
-    this.announceService.getEveryAnnonce().subscribe(res => this.annonce = res)
-    //this.announceService.getAnnonce().subscribe(res => console.log(res))
+    this.announceService.getEveryAnnonce().subscribe(res => {
+    this.annonce = res;
+    })
 
   }
 

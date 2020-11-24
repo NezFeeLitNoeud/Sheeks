@@ -45,7 +45,6 @@ export class AnswerComponent implements OnInit {
         })
       })
       .subscribe(() => {
-        this.router.navigate([`/search/annonce/${this.annonceId}`]);
         this.ngOnInit();
       },
       error => {

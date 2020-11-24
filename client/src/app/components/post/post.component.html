@@ -1,1 +1,62 @@
-<p>post works!</p>
+<app-previous></app-previous>
+
+
+<div class="container-post">
+    <h1>Poster une annonce</h1>
+    <div class="form-post">
+        <form name="form" (ngSubmit)="postForm.form.valid && postAnnounce()" #postForm="ngForm" novalidate>
+            <div class="contain-left">
+                <div class="game">
+                    <div class="input-field col col offset-s1 s4">
+                        <select class="browser-default" name="game" [(ngModel)]="model.game" #game="ngModel" required>
+                            <option value="none">Choose your game</option>
+                            <option value="Rocket League">Rocket League</option>
+                            <option value="Rainbow 6 Siege">Rainbow 6 Siege</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="plateform">
+                    <div class="input-field col col offset-s1 s4">
+                        <select class="browser-default" name="plateforme" [(ngModel)]="model.plateforme" #plateforme="ngModel" required>
+                            <option value="none">Choose your plateform</option>
+                            <option value="PS4">PS4</option>
+                            <option value="xBox">Xbox</option>
+                            <option value="PC">PC</option>
+                            <option value="Switch">Switch</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="level">
+                    <div class="input-field col col offset-s1 s4">
+                        <select class="browser-default" name="level" [(ngModel)]="model.level" #level="ngModel" required>
+                            <option value="none">Choose your level</option>
+                            <option value="Chill">Chill</option>
+                            <option value="Ranked">Ranked</option>
+                            <option value="eSport">eSport</option>
+                        </select>
+                    </div>  
+                </div>
+            </div>
+            <div class="contain-right">
+                <div class="titre">
+                    <div class="input-field col offset-s2 s4">
+                        <input id="titre" name="titre" [(ngModel)]="model.titre" #titre="ngModel" type="text" class="validate" required>
+                        <label for="pseudo">Titre de l'annonce</label>
+                      </div>
+                </div>
+                    <div class="message">
+                        <div class="input-field col offset-s2 s4">
+                            <input id="message" name="message" [(ngModel)]="model.message" #message="ngModel" type="text" class="validate" required>
+                            <label for="pseudo">Message</label>
+                          </div>
+                    </div>
+                    <div class="button">
+                        <button type="submit" class="col offset-s8 s3 btn-inscription">
+                            POSTER
+                        </button>
+                    </div>
+            </div> 
+            
+        </form> 
+    </div>
+</div>
