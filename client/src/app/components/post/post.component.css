@@ -1,27 +1,20 @@
 .container-post {
-    border: 1px red solid;
-    
+    width: 75%;
+    margin: 0% auto;
 }
-
-/* .form-post {
-    display: flex;
-    
-} */
 
 form {
     display: flex;
+    padding: 10px;
 }
 
 .contain-left{
-    border: 1px blue solid;
     flex: 1;
+    padding: 10px;
 }
 
-.game, .plateform, .level, .message, .button {
-    border: 1px white solid;
-}
 
 .contain-right {
-    border: 1px green solid;
     flex: 2;
+    padding: 10px;
 }

@@ -1,4 +1,8 @@
+<app-previous></app-previous>
+
+
 <div class="container-post">
+    <h1>Poster une annonce</h1>
     <div class="form-post">
         <form name="form" (ngSubmit)="postForm.form.valid && postAnnounce()" #postForm="ngForm" novalidate>
             <div class="contain-left">
@@ -37,7 +41,7 @@
                 <div class="titre">
                     <div class="input-field col offset-s2 s4">
                         <input id="titre" name="titre" [(ngModel)]="model.titre" #titre="ngModel" type="text" class="validate" required>
-                        <label for="pseudo">titre</label>
+                        <label for="pseudo">Titre de l'annonce</label>
                       </div>
                 </div>
                     <div class="message">
@@ -48,7 +52,7 @@
                     </div>
                     <div class="button">
                         <button type="submit" class="col offset-s8 s3 btn-inscription">
-                            M'INSCRIRE
+                            POSTER
                         </button>
                     </div>
             </div> 
