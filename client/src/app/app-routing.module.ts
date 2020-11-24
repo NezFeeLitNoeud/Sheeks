@@ -8,6 +8,7 @@ import { SearchComponent } from './components/Recherche/home/search.component';
 import { DisplaySearchComponent } from './components/Recherche/display-search/display-search.component';
 import { AuthGuardGuard } from './components/auth/auth-guard.guard'
 import { ProfilComponent } from './components/User/profil/profil.component';
+import { PostComponent } from './components/post/post.component';
 const routes: Routes = [
   {path: '', component: NavbarComponent},
   {path: 'inscription', component: InscriptionComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   {path: 'search', component: SearchComponent},
   {path: 'profil', component: ProfilComponent},
+  {path: 'poster', component: PostComponent},
   {path: 'search/announce/:id', component: DisplaySearchComponent, canActivate: [AuthGuardGuard]}
   // {path: '**', component: Component Pour page pas trouver}
 ];
