@@ -8,10 +8,15 @@ import { UserService } from 'src/app/services/users/user.service';
 })
 export class ProfilComponent implements OnInit {
 
+  users: any;
   constructor(private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getUser().subscribe(res => console.log(res));
+    this.userService.getUser().subscribe(res => {
+    this.users = res;
+    console.log(res)
+    }
+    );
   }
 
 }
