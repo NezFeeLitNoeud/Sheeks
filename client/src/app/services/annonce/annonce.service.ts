@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { UserService } from '../users/user.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnnonceService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private userService: UserService) { }
+
 
   public getEveryAnnonce(){
     return this.http
@@ -36,13 +38,12 @@ return this.http
 .get(`http://localhost:8080/search/announce/${id}/answer`);
 }
 
-public answer(pseudo_id: number, annonce_id: number, message: string){
+public answer(annonce_id: number, message: string){
   return this.http
   .post('http://localhost:8080/search/answer', {
-pseudo_id: pseudo_id,
 annonce_id: annonce_id,
 message: message,
 
-})
+});
 }
 }

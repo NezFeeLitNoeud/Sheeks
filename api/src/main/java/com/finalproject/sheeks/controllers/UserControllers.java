@@ -35,13 +35,11 @@ public class UserControllers {
     }
 
     @GetMapping("/user")
-    public String getUser() {
+    public User getUser() {
 
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentPrincipalName = authentication.getName();
-        //User byUsername = userRepository.findByUsername(pseudo);
+        User loggedUser = userService.getLoggedUser();
 
-        return currentPrincipalName;
+        return loggedUser;
 
 
     }

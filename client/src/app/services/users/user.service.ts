@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -16,7 +16,7 @@ password: password
 }
 
 public getUser() {
-  return this.http.get(this.url +`user`);
+  return this.http.get(this.url +`user`, UserService.getAuthenticatedHttpOptions());
 }
 
 public register(pseudo:string, email:string, password:string, gamertag:string, plateforme: string) {
@@ -30,6 +30,17 @@ gamertag: gamertag,
 plateforme: plateforme
   })
 
+}
 
+private static getAuthenticatedHttpOptions(): any {
+  const token = localStorage.getItem('token');
+  if (token) {
+    return {
+      headers: new HttpHeaders({
+        Authorization: `Basic ${token}`,
+      })
+    };
+  }
+  return undefined;
 }
 }

@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Route } from '@angular/compiler/src/core';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, RouterEvent } from '@angular/router';
@@ -29,31 +29,43 @@ export class AnswerComponent implements OnInit {
     this.annonceId = this.id
     this.announceService.getAnswerFromAnnounce(this.annonceId).subscribe(res => {
       this.answer = res;
-    console.log(this.answer);
-
-    //this.userService.getUser(this.userPseudo).subscribe(res => console.log(res));
     });
    
   }
 
   sentResponse(){
-
-
+    const token = localStorage.getItem('token');
     this.http
       .post("http://localhost:8080/search/answer", {
         "message": this.model.message,
-        "announce_id": this.annonceId,
-        "user_id": 1,
+        "announce_id": this.annonceId
+      }, {
+          headers: new HttpHeaders({
+          Authorization: `Basic ${token}`,
+        })
       })
       .subscribe(() => {
-        this.router.navigate(["/"])
+        this.router.navigate([`/search/annonce/${this.annonceId}`]);
+        this.ngOnInit();
       },
       error => {
-        console.log(`Login failed : ${error}`)
+        console.log(error)
       })
   }
 
   answering(){
     this.isAnswering = !this.isAnswering;
+  }
+
+  private static getAuthenticatedHttpOptions(): any {
+    const token = localStorage.getItem('token');
+    if (token) {
+      return {
+        headers: new HttpHeaders({
+          Authorization: `Basic ${token}`,
+        })
+      };
+    }
+    return undefined;
   }
 }

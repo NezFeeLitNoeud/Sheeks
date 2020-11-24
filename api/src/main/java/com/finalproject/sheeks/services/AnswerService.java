@@ -28,15 +28,16 @@ public class AnswerService implements IAnswerService{
     @Autowired
     AnswerRepository answerRepository;
 
-    @Override
-    public void addAnswer(Long user_id, Long announce_id, LocalDateTime creation_date, String message) {
-        //String username = SecurityContextHolder.getContext().getAuthentication().getName();
-        User byId = userRepository.findUserById(user_id);
-        Announce annonceId = announceRepository.findAnnounceById(announce_id);
+    @Autowired
+    UserService userService;
 
+    @Override
+    public void addAnswer(Long announce_id, String message) {
+        User loggedUser = userService.getLoggedUser();
+        Announce annonceId = announceRepository.findAnnounceById(announce_id);
         LocalDateTime currentDateTime = LocalDateTime.now();
 
-        Answer answer = new Answer(byId, annonceId, message, currentDateTime);
+        Answer answer = new Answer(loggedUser, annonceId, message, currentDateTime);
         answerRepository.save(answer);
     }
 

@@ -1,12 +1,13 @@
 
-.container-card {
+.conteneur-card {
     margin: -5% auto;
+    height: 100%;
 }
 
 .annonce-card {
     width: 70%;
     color: #484490;
-    margin: 5% 15%;
+    margin: 5% 15% 0% 15%;
 }
 
 .user-info {
@@ -39,6 +40,46 @@
     text-align: center;
 }
 
-.btn-inscription {
-    margin-left: 60%;
+
+.btn-answer {
+    font-weight: bold;
+    background: none;
+    border: none;
+    color: #DBD159;
+    font-size: 20px;
+    margin-left: 70%;
+    margin-top: 5%;
 }
+
+.btn-answer::after {
+    background-image: url('../../../../assets/image/arrow-down-filled-triangle.svg');
+    background-size: 10px 20px;
+    position: relative;
+    top: 15px;
+    display:inline-block;
+    width: 10px; 
+    height: 20px;
+    content:"";
+}
+
+.btn-answer:hover {
+    cursor: pointer;
+}
+
+#textarea1 {
+    border: none;
+    border-bottom: 1px #DBD159 solid;
+    color: white;
+}
+
+ /* label focus color */
+ textarea:focus + label {
+    color: white;
+    
+    
+}
+/* label underline focus color */
+textarea:focus {
+    border-bottom: 1px solid #000;
+    box-shadow: 0 1px 0 0 #000;
+  }

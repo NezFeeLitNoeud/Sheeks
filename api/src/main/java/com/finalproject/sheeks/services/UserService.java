@@ -35,18 +35,19 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public Object getUser() {
-
-        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
-        return principal;
-    }
-
-    @Override
     public void registerUser(String pseudo, String email, String password, String gamertag, String plateform) {
         Role roleUser = roleRepository.findById((long) 1).orElseThrow();
         User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, plateform, roleUser);
 
         userRepository.save(user);
     }
+
+    @Override
+    public User getLoggedUser() {
+        String authentication = SecurityContextHolder.getContext().getAuthentication().getName();
+        User user = userRepository.findByUsername(authentication);
+
+        return user;
+    }
+
 }

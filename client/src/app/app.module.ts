@@ -15,6 +15,7 @@ import { DisplaySearchComponent } from './components/Recherche/display-search/di
 import { PostComponent } from './components/post/post.component';
 import { AnswerComponent } from './components/Recherche/answer/answer.component';
 import { ProfilComponent } from './components/User/profil/profil.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { ProfilComponent } from './components/User/profil/profil.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

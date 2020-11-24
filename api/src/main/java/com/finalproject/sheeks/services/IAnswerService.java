@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IAnswerService {
 
-    public void addAnswer(Long user_id, Long announce_id, LocalDateTime creation_date, String message);
+    public void addAnswer(Long announce_id, String message);
 
     public List<Answer> getAnswerByAnnounceId(Announce id);
 }
