@@ -8,7 +8,7 @@ public class Jeux {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "a_id")
+    @Column(name = "g_id")
     private Long id;
 
     @Column(name = "g_name", nullable = false, unique = true)

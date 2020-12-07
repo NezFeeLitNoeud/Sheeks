@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.Base64;
+
 @Service
 public class UserService implements IUserService {
 
@@ -29,7 +31,11 @@ public class UserService implements IUserService {
     @Override
     public void verifyUser(String pseudo, String password) {
         UserDetails user = userDetailsService.loadUserByUsername(pseudo);
-        if (!passwordEncoder.matches(password, user.getPassword())) {
+
+        byte[] decodedBytes = Base64.getDecoder().decode(password);
+        String decodedPassword = new String(decodedBytes);
+
+        if (!passwordEncoder.matches(decodedPassword, user.getPassword())) {
             throw new BadCredentialsException("bad credentials " + pseudo);
         }
     }

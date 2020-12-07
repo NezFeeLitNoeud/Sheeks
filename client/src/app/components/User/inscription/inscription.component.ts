@@ -47,7 +47,7 @@ passwordMatch: boolean = true;
         "plateform": this.model.plateforme,
       })
       .subscribe(() => {
-        this.router.navigate(["/Connexion"])
+        this.router.navigate(["/connexion"])
       },
       error => {
         console.log(`Login failed : ${error}`)

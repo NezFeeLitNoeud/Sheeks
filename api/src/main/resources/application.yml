@@ -4,6 +4,7 @@ spring:
     url: jdbc:postgresql://localhost:5432/sheeks
     username: postgres
     password: root
+    initialization-mode: always
   jpa:
 
     properties:

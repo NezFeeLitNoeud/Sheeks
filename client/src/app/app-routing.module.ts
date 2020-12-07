@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   {path: 'search', component: SearchComponent},
   {path: 'profil', component: ProfilComponent},
-  {path: 'poster', component: PostComponent},
+  {path: 'poster', component: PostComponent, canActivate: [AuthGuardGuard]},
   {path: 'search/announce/:id', component: DisplaySearchComponent, canActivate: [AuthGuardGuard]}
   // {path: '**', component: Component Pour page pas trouver}
 ];

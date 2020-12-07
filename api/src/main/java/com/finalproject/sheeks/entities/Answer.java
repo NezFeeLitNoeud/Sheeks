@@ -11,21 +11,21 @@ public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "au_id")
+    @Column(name = "aa_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "au_u_id")
+    @JoinColumn(name = "aa_u_id")
     private User user_id;
 
     @ManyToOne
-    @JoinColumn(name = "au_a_id")
+    @JoinColumn(name = "aa_a_id")
     private Announce announce_id;
 
-    @Column(name = "au_message", nullable = false)
+    @Column(name = "aa_message", nullable = false)
     private String message;
 
-    @Column(name = "au_creation_date", nullable = false)
+    @Column(name = "aa_creation_date", nullable = false)
     private LocalDateTime creation_date;
 
     public Answer() {
