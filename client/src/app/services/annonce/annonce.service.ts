@@ -46,4 +46,9 @@ message: message,
 
 });
 }
+
+public searchAnnounce(jeu: string, plateforme: string, level: string) {
+  return this.http
+  .get(`http://localhost:8080/research/${jeu}/${plateforme}/${level}`)
+}
 }

@@ -1,0 +1,34 @@
+
+<form name="form" (ngSubmit)="searchForm.form.valid && searchAnnounce()" #searchForm="ngForm" novalidate>
+    <div class="contain-left">
+        <div class="game">
+            <div class="input-field col col offset-s1 s4">
+                <select class="browser-default" name="jeu" [(ngModel)]="model.jeu" #jeu="ngModel" required>
+                    <option value="none">Choix du jeu</option>
+                    <option *ngFor="let jeu of jeux" [value]="jeu.nom">{{jeu.nom}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="plateform">
+            <div class="input-field col col offset-s1 s4">
+                <select class="browser-default" name="plateforme" [(ngModel)]="model.plateforme" #plateforme="ngModel" required>
+                    <option value="none" selected>Choix de la plateforme</option>
+                    <option *ngFor="let plateforme of plateformes" [value]="plateforme">{{plateforme}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="level">
+            <div class="input-field col col offset-s1 s4">
+                <select class="browser-default" name="level" [(ngModel)]="model.level" #level="ngModel" required>
+                    <option value="none">Choose your level</option>
+                    <option *ngFor="let level of levels" [value]="level">{{level}}</option>
+                </select>
+            </div>  
+        </div>
+    </div>
+            <div class="button">
+                <button type="submit" class="col offset-s8 s3 btn-inscription">
+                    Rechercher
+                </button>
+            </div> 
+</form> 
