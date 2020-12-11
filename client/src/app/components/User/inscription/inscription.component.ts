@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from "@angular/common/http";
+import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-inscription',
@@ -12,7 +13,7 @@ model: any;
 passwordMatch: boolean = true;
 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   
@@ -38,14 +39,7 @@ passwordMatch: boolean = true;
 
     if(this.passwordMatch == true){
       password = this.model.password;
-      this.http
-      .post("http://localhost:8080/register", {
-        "pseudo": this.model.pseudo,
-        "email": this.model.email,
-        "password": password,
-        "gamertag": this.model.gamertag,
-        "plateform": this.model.plateforme,
-      })
+      this.userService.register(this.model.pseudo, this.model.email, password, this.model.gamertag, this.model.plateforme)
       .subscribe(() => {
         this.router.navigate(["/connexion"])
       },
@@ -55,10 +49,6 @@ passwordMatch: boolean = true;
     } else {
       password = null;
     }
-
-    console.log(this.passwordMatch)
-  
-  
   }
 
 }

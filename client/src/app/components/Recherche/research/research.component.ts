@@ -12,7 +12,7 @@ export class ResearchComponent implements OnInit {
 jeux:any;
 model: any;
 plateformes: string[] = ['PS4', 'xBox', 'PC', 'Switch'];
-levels: string[] = ['Chill', 'Rank', 'eSport'];
+levels: string[] = ['Chill', 'Ranked', 'eSport'];
 
   constructor(public jeuxService: JeuxService, public annonceService: AnnonceService, private router: Router) { }
 

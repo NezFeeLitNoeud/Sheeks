@@ -16,11 +16,10 @@ password: password
 }
 
 public getUser() {
-  return this.http.get(this.url +`user`, UserService.getAuthenticatedHttpOptions());
+  return this.http.get(this.url +`user`, this.getAuthenticatedHttpOptions());
 }
 
 public register(pseudo:string, email:string, password:string, gamertag:string, plateforme: string) {
-
   return this.http
   .post(this.url + `register`, {
 pseudo: pseudo,
@@ -32,7 +31,7 @@ plateforme: plateforme
 
 }
 
-private static getAuthenticatedHttpOptions(): any {
+public getAuthenticatedHttpOptions(): any {
   const token = localStorage.getItem('token');
   if (token) {
     return {

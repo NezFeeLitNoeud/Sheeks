@@ -20,17 +20,15 @@ export class AnnonceService {
       .get(`http://localhost:8080/search/announce/${id}`);
   }
 
-  public postAnnounce(pseudo_id: number, annonce_id: number, title: string, message: string, jeux: string, plateforme: string, niveau: string){
+  public postAnnounce(title: string, message: string, niveau: string, plateforme: string, jeux: string){
     return this.http
     .post('http://localhost:8080/search/post', {
-  pseudo_id: pseudo_id,
-  annonce_id: annonce_id,
-  title: title,
+  titre: title,
   message: message,
-  jeux: jeux,
+  niveau: niveau,
   plateforme: plateforme,
-  niveau: niveau
-  })
+  jeux: jeux
+}, this.userService.getAuthenticatedHttpOptions())
 }
 
 public getAnswerFromAnnounce(id: number){
