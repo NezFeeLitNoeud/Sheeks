@@ -47,4 +47,11 @@ public class AnnounceService implements IAnnounceService{
         announceRepository.save(annonce);
 
     }
+
+    @Override
+    public List<Announce> researchAnnounce(String jeu, String plateforme, String level) {
+        Jeux jeux = jeuxRepository.findByName(jeu);
+
+        return announceRepository.findAnnounceByReasearch(jeux, plateforme, level);
+    }
 }

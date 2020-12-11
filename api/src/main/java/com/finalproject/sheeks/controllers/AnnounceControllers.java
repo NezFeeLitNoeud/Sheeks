@@ -58,4 +58,9 @@ public class AnnounceControllers {
     public void postAnswerToAnnounce(@RequestBody AnswerDto answer){
         answerService.addAnswer(answer.getAnnounce_id(), answer.getMessage());
     }
+
+    @GetMapping("/research/{jeux}/{plateforme}/{niveau}")
+    public List<Announce> searchAnnounce(@PathVariable("jeux") String jeux, @PathVariable("plateforme") String plateforme, @PathVariable("niveau") String niveau){
+        return announceService.researchAnnounce(jeux, plateforme, niveau);
+    }
 }
