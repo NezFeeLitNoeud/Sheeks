@@ -16,6 +16,7 @@ import { PostComponent } from './components/post/post.component';
 import { AnswerComponent } from './components/Recherche/answer/answer.component';
 import { ProfilComponent } from './components/User/profil/profil.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ResearchComponent } from './components/Recherche/research/research.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DisplaySearchComponent,
     PostComponent,
     AnswerComponent,
-    ProfilComponent
+    ProfilComponent,
+    ResearchComponent
   ],
   imports: [
     BrowserModule,

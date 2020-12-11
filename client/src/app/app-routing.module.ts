@@ -9,12 +9,14 @@ import { DisplaySearchComponent } from './components/Recherche/display-search/di
 import { AuthGuardGuard } from './components/auth/auth-guard.guard'
 import { ProfilComponent } from './components/User/profil/profil.component';
 import { PostComponent } from './components/post/post.component';
+import { ResearchComponent } from './components/Recherche/research/research.component';
 const routes: Routes = [
   {path: '', component: NavbarComponent},
   {path: 'inscription', component: InscriptionComponent},
   {path: 'connexion', component: ConnexionComponent},
   {path: 'logout', component: LogoutComponent},
-  {path: 'search', component: SearchComponent},
+  {path: 'search/:jeux/:plateforme/:niveau', component: SearchComponent},
+  {path: 'research', component: ResearchComponent},
   {path: 'profil', component: ProfilComponent},
   {path: 'poster', component: PostComponent, canActivate: [AuthGuardGuard]},
   {path: 'search/announce/:id', component: DisplaySearchComponent, canActivate: [AuthGuardGuard]}
