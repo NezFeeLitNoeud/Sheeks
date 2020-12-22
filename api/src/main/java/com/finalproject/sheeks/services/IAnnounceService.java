@@ -15,4 +15,6 @@ public interface IAnnounceService {
     void postAnnounce(String titre, String message, String niveau, String plateforme, String game);
 
      List<Announce> researchAnnounce(String jeu, String plateforme, String level );
+
+    void deleteAnnounce(Long id);
 }

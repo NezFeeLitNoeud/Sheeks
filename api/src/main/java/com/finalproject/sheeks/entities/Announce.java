@@ -33,18 +33,29 @@ public class Announce {
     @Column(name = "a_plateforme",nullable = false)
     private String plateforme;
 
+    @OneToMany(mappedBy = "announce_id", cascade = CascadeType.REMOVE)
+    private List<Answer> answers;
 
     public Announce() {
     }
 
     public Announce(User user, Jeux jeux, String titre, String message, String niveau, String plateforme) {
-
         this.user = user;
         this.jeux = jeux;
         this.titre = titre;
         this.message = message;
         this.niveau = niveau;
         this.plateforme = plateforme;
+    }
+
+    public Announce(User user, Jeux jeux, String titre, String message, String niveau, String plateforme, List<Answer> answers) {
+        this.user = user;
+        this.jeux = jeux;
+        this.titre = titre;
+        this.message = message;
+        this.niveau = niveau;
+        this.plateforme = plateforme;
+        this.answers = answers;
     }
 
     public Long getId() {
@@ -101,5 +112,13 @@ public class Announce {
 
     public void setPlateforme(String plateforme) {
         this.plateforme = plateforme;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 }
