@@ -17,25 +17,22 @@ plateforme: string;
 level: string;
 
   constructor(private announceService: AnnonceService,
-    public router: Router, public param: ActivatedRoute) { }
+              public router: Router, public param: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.jeux = this.param.snapshot.paramMap.get('jeux');
     this.plateforme = this.param.snapshot.paramMap.get('plateforme');
-    this.level = this.param.snapshot.paramMap.get('niveau')
+    this.level = this.param.snapshot.paramMap.get('niveau');
 
     this.announceService.searchAnnounce(this.jeux, this.plateforme, this.level)
     .subscribe(res => {
-      this.annonce= res;
-    })
-    // this.announceService.getEveryAnnonce().subscribe(res => {
-    // this.annonce = res;
-    // })
+      this.annonce = res;
+    });
 
   }
 
-  navigateToAnnounce(id: number, nom: string){
-    this.router.navigateByUrl('search/announce/' + id)
+  navigateToAnnounce(id: number, nom: string) {
+    this.router.navigateByUrl('search/announce/' + id);
     localStorage.setItem('game', nom);
   }
 

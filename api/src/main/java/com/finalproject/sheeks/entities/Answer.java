@@ -1,6 +1,8 @@
 package com.finalproject.sheeks.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -20,6 +22,7 @@ public class Answer {
 
     @ManyToOne
     @JoinColumn(name = "aa_a_id")
+    @JsonIgnore
     private Announce announce_id;
 
     @Column(name = "aa_message", nullable = false)
