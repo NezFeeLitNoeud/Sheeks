@@ -1,3 +1,4 @@
+import { UserService } from 'src/app/services/users/user.service';
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -9,7 +10,7 @@ interface announceInterface {
   message: string;
   niveau: string;
   plateforme: string;
-  titre: string;  
+  titre: string;
   user_pseudo: string;
 }
 
@@ -22,23 +23,47 @@ interface announceInterface {
 export class DisplaySearchComponent implements OnInit {
 
   constructor(private announceService: AnnonceService,
-    public route: ActivatedRoute) { }
+              public route: ActivatedRoute, private userService: UserService, private router: Router) { }
 
     id: any;
     annonce: any;
     titleGame: string;
+    loggedUser: any;
+    showCross = false;
+    authorAnnounce: any;
+    status: string;
+
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
 
     this.announceService.getAnnonceById(this.id).subscribe(res => {
     this.annonce = res;
-        console.log(this.annonce)
-      
-    })  
-    this.titleGame = localStorage.getItem("game");
+    console.log(res)
+    });
+
+    this.userService.getUser().subscribe(res => {
+      this.loggedUser = res;
+
+      if (this.annonce.user.pseudo === this.loggedUser.pseudo) {
+        console.log('it matches');
+        this.showCross = true
+      } else {
+        console.log('not working');
+        this.showCross = true
+      }
+    });
+    this.titleGame = localStorage.getItem('game');
+
 
   }
 
+  deleteAnnounce() {
+this.announceService.deleteAnnounceById(this.id)
+.subscribe(res => {
+this.status = "Annonce effacée";
+console.log(this.status)
+this.router.navigate(["/delete"]);
+});
+  }
 }

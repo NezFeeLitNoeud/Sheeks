@@ -54,4 +54,12 @@ public class AnnounceService implements IAnnounceService{
 
         return announceRepository.findAnnounceByReasearch(jeux, plateforme, level);
     }
+
+    @Override
+    public void deleteAnnounce(Long id) {
+        Announce announceToDelete = announceRepository.findAnnounceById(id);
+        announceRepository.delete(announceToDelete);
+    }
+
+
 }

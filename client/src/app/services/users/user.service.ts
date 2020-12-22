@@ -26,7 +26,7 @@ pseudo: pseudo,
 email: email,
 password: password,
 gamertag: gamertag,
-plateforme: plateforme
+plateform: plateforme
   })
 
 }

@@ -1,3 +1,4 @@
+import { SuccessfulDeleteComponent } from './components/Recherche/successful-delete/successful-delete.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ConnexionComponent } from './components/User/connexion/connexion.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: 'research', component: ResearchComponent},
   {path: 'profil', component: ProfilComponent},
   {path: 'poster', component: PostComponent, canActivate: [AuthGuardGuard]},
-  {path: 'search/announce/:id', component: DisplaySearchComponent, canActivate: [AuthGuardGuard]}
+  {path: 'search/announce/:id', component: DisplaySearchComponent, canActivate: [AuthGuardGuard]},
+  {path: 'delete', component: SuccessfulDeleteComponent}
   // {path: '**', component: Component Pour page pas trouver}
 ];
 

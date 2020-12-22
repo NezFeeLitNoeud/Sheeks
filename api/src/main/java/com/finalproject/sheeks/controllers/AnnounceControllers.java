@@ -63,4 +63,9 @@ public class AnnounceControllers {
     public List<Announce> searchAnnounce(@PathVariable("jeux") String jeux, @PathVariable("plateforme") String plateforme, @PathVariable("niveau") String niveau){
         return announceService.researchAnnounce(jeux, plateforme, niveau);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteAnnounce(@PathVariable("id") Long id){
+        announceService.deleteAnnounce(id);
+    }
 }
