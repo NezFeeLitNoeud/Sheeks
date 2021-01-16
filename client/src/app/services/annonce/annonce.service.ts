@@ -23,7 +23,7 @@ export class AnnonceService {
 
   public postAnnounce(title: string, message: string, niveau: string, plateforme: string, jeux: string) {
     return this.http
-      .post('http://localhost:8080/search/post', {
+      .post('http://localhost:8080/api/search/post', {
         titre: title,
         message: message,
         niveau: niveau,
@@ -48,7 +48,7 @@ export class AnnonceService {
 
   public searchAnnounce(jeu: string, plateforme: string, level: string) {
     return this.http
-      .get(`http://localhost:8080/research/${jeu}/${plateforme}/${level}`);
+      .get(`http://localhost:8080/api/research/${jeu}/${plateforme}/${level}`);
   }
 
   public deleteAnnounceById(id: number){

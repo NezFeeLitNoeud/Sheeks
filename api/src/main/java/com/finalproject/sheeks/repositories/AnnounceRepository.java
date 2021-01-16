@@ -11,10 +11,8 @@ import java.util.List;
 
 public interface AnnounceRepository  extends JpaRepository<Announce, Long> {
 
-    //@Query("SELECT a FROM Announce a WHERE a.id = :id")
-    //User findById(@Param("id") Long id);
-@Query("SELECT a FROM Announce a WHERE a.jeux = :jeux AND a.plateforme = :plateforme AND a.niveau = :niveau")
-    List<Announce> findAnnounceByReasearch(@Param("jeux") Jeux jeux, @Param("plateforme") String plateforme, @Param("niveau") String niveau);
+    @Query("SELECT a FROM Announce a WHERE a.jeux = :jeux AND a.plateforme = :plateforme AND a.niveau = :niveau")
+    List<Announce> findAnnounceByResearch(@Param("jeux") Jeux jeux, @Param("plateforme") String plateforme, @Param("niveau") String niveau);
 
     @Query("SELECT a FROM Announce a WHERE a.id = :id")
     Announce findAnnounceById(@Param("id") Long id);

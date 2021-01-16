@@ -6,6 +6,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+import { Router } from '@angular/router';
 import {
   AnnonceService
 } from 'src/app/services/annonce/annonce.service';
@@ -21,7 +22,7 @@ import {
 export class PostComponent implements OnInit {
 
   model: any;
-  constructor(private announceService: AnnonceService) {}
+  constructor(private announceService: AnnonceService, private route: Router) {}
 
   ngOnInit(): void {
 
@@ -33,11 +34,11 @@ export class PostComponent implements OnInit {
     const token = localStorage.getItem('token');
     this.announceService.postAnnounce(this.model.titre, this.model.message, this.model.level, this.model.plateforme, this.model.game)
       .subscribe(() => {
+       // this.route.navigate['/'];
           this.ngOnInit();
         },
         error => {
           console.log(error)
         })
   }
-
 }

@@ -6,6 +6,7 @@ import com.finalproject.sheeks.entities.Jeux;
 import com.finalproject.sheeks.repositories.AnnounceRepository;
 import com.finalproject.sheeks.repositories.JeuxRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,8 +14,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
-@CrossOrigin
-@RestController
+@Service
 public class AnnounceService implements IAnnounceService{
 
     @Autowired
@@ -52,7 +52,7 @@ public class AnnounceService implements IAnnounceService{
     public List<Announce> researchAnnounce(String jeu, String plateforme, String level) {
         Jeux jeux = jeuxRepository.findByName(jeu);
 
-        return announceRepository.findAnnounceByReasearch(jeux, plateforme, level);
+        return announceRepository.findAnnounceByResearch(jeux, plateforme, level);
     }
 
     @Override

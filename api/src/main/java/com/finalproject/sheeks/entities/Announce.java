@@ -18,7 +18,6 @@ public class Announce {
 
     @OneToOne
     @JoinColumn(name = "a_game_id", nullable = false)
-    //@Column(name = "a_game", nullable = false)
     private Jeux jeux;
 
     @Column(name = "a_titre", nullable = false)
