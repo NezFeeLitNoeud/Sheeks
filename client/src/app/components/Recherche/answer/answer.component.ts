@@ -35,36 +35,16 @@ export class AnswerComponent implements OnInit {
 
   sentResponse(){
     const token = localStorage.getItem('token');
-    this.http
-      .post("http://localhost:8080/search/answer", {
-        "message": this.model.message,
-        "announce_id": this.annonceId
-      }, {
-          headers: new HttpHeaders({
-          Authorization: `Basic ${token}`,
-        })
-      })
+    this.announceService.answer(this.model.message, this.annonceId)
       .subscribe(() => {
-        this.ngOnInit();
-      },
-      error => {
-        console.log(error)
-      })
+          this.ngOnInit();
+        },
+        error => {
+          console.log(error)
+        })
   }
 
   answering(){
     this.isAnswering = !this.isAnswering;
-  }
-
-  private static getAuthenticatedHttpOptions(): any {
-    const token = localStorage.getItem('token');
-    if (token) {
-      return {
-        headers: new HttpHeaders({
-          Authorization: `Basic ${token}`,
-        })
-      };
-    }
-    return undefined;
   }
 }

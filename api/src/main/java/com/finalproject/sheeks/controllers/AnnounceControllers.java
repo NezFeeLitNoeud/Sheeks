@@ -11,6 +11,7 @@ import com.finalproject.sheeks.repositories.AnswerRepository;
 import com.finalproject.sheeks.services.IAnnounceService;
 import com.finalproject.sheeks.services.IAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -44,7 +45,8 @@ public class AnnounceControllers {
         return announceService.getAnnounceById(id);
     }
 
-    @PostMapping("/search/post")
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @PostMapping("/api/search/post")
     public void postAnnounce(@RequestBody AnnounceDto announce){
         announceService.postAnnounce(announce.getTitre(), announce.getMessage(), announce.getNiveau(), announce.getPlateforme(), announce.getJeux());
     }
@@ -54,17 +56,19 @@ public class AnnounceControllers {
        return answerService.getAnswerByAnnounceId(id);
     }
 
-    @PostMapping("/search/answer")
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @PostMapping("/api/search/answer")
     public void postAnswerToAnnounce(@RequestBody AnswerDto answer){
         answerService.addAnswer(answer.getAnnounce_id(), answer.getMessage());
     }
 
-    @GetMapping("/api/research/{jeux}/{plateforme}/{niveau}")
+    @GetMapping("/research/{jeux}/{plateforme}/{niveau}")
     public List<Announce> searchAnnounce(@PathVariable("jeux") String jeux, @PathVariable("plateforme") String plateforme, @PathVariable("niveau") String niveau){
         return announceService.researchAnnounce(jeux, plateforme, niveau);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @DeleteMapping("/api/delete/{id}")
     public void deleteAnnounce(@PathVariable("id") Long id){
         announceService.deleteAnnounce(id);
     }

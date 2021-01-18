@@ -42,7 +42,7 @@ public class UserService implements IUserService {
 
     @Override
     public void registerUser(String pseudo, String email, String password, String gamertag, String plateform) {
-        Role roleUser = roleRepository.findById((long) 1).orElseThrow();
+        Role roleUser = roleRepository.findById((long) 2).orElseThrow();
         User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, plateform, roleUser);
 
         userRepository.save(user);

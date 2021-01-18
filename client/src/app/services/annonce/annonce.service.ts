@@ -37,24 +37,23 @@ export class AnnonceService {
       .get(`http://localhost:8080/search/announce/${id}/answer`);
   }
 
-  public answer(annonce_id: number, message: string) {
+  public answer(message: string, annonce_id: number) {
     return this.http
-      .post('http://localhost:8080/search/answer', {
-        annonce_id: annonce_id,
+      .post('http://localhost:8080/api/search/answer', {
         message: message,
-
-      });
+        announce_id: annonce_id,
+      }, this.userService.getAuthenticatedHttpOptions());
   }
 
   public searchAnnounce(jeu: string, plateforme: string, level: string) {
     return this.http
-      .get(`http://localhost:8080/api/research/${jeu}/${plateforme}/${level}`);
+      .get(`http://localhost:8080/research/${jeu}/${plateforme}/${level}`);
   }
 
   public deleteAnnounceById(id: number){
     const token = localStorage.getItem('token');
 
     return this.http
-    .delete(`http://localhost:8080/delete/${id}`);
+    .delete(`http://localhost:8080/api/delete/${id}`, this.userService.getAuthenticatedHttpOptions());
   }
 }

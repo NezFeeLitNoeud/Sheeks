@@ -1,4 +1,4 @@
-INSERT INTO role (r_name) VALUES ('ADMIN'),('USER');
+INSERT INTO role (r_name) VALUES ('ROLE_ADMIN'),('ROLE_USER');
 
 INSERT INTO game (g_name, g_type) VALUES
 ('Rocket League', 'Sport'),
