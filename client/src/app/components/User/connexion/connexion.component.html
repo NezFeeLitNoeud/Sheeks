@@ -5,16 +5,21 @@
           <div class="row">
              <div class="input-field col offset-s4 s4">
             <label for="Pseudo">Pseudo</label>
-            <input type="text" id="pseudo" name="pseudo" [(ngModel)]="model.pseudo" #pseudo="ngModel"class="validate" >
-            
+            <input type="text" id="pseudo" name="pseudo" [(ngModel)]="model.pseudo" #pseudo="ngModel"class="validate" required >
+            <div *ngIf="loginForm.submitted && pseudo.invalid" class="invalid-feedback">
+              <div class="alert" *ngIf="pseudo.errors.required">Pseudo is required</div>
+            </div>
           </div> 
         </div>
         <div class="row">
           <div class="input-field col offset-s4 s4">
             <label for="Password">Password</label>
-            <input type="password" id="password" name="password" [(ngModel)]="model.password" #password="ngModel">
+            <input type="password" id="password" name="password" [(ngModel)]="model.password" #password="ngModel" required>
             <div *ngIf="isLogged === false">
               <p style="color:red;">Verifier votre mot de passe et/ou pseudo</p>
+            </div>
+            <div *ngIf="loginForm.submitted && password.invalid" class="invalid-feedback">
+              <div class="alert" *ngIf="password.errors.required">Password is required</div>
             </div>
             <p id="connect">Pas encore de compte ? <a routerLink="/inscription">Inscrivez-vous.</a></p>
           </div>
