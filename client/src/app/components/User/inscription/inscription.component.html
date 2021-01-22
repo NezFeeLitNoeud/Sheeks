@@ -54,6 +54,7 @@
                 <option value="PC">PC</option>
                 <option value="Switch">Switch</option>
             </select>
+            <div class="alert" *ngIf=plateformError> Please, select a valid plateforme</div>
             <div *ngIf="registerForm.submitted && plateforme.invalid" class="invalid-feedback">
               <div class="alert" *ngIf="plateforme.errors.required">Plateforme is required</div>
             </div>
