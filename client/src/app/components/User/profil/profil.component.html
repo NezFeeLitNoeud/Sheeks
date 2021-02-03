@@ -1,12 +1,11 @@
 <app-previous></app-previous>
 
-<h1 class="center-align "> Profil de {{users.pseudo}}</h1>
+<h1 *ngIf="users" class="center-align "> Profil de {{users.pseudo}}</h1>
  <div *ngIf="users" class="row container">
     <div class="col offset-s3 s6 transparent">
       <div class="card transparent">
         <div class="card-image ">
-          <img src="../../../../assets/image/logo/SHEEKS-02.svg">
-          <a class="btn-floating halfway-fab waves-effect waves-light yellow accent-4 "><i class="material-icons">border_color</i></a>
+          <img src="../../../../assets/image/logo/SHEEKS-02.svg" width="300" height="250" alt="Logo Sheeks">
         </div>
         <div class="card-content center-align">
           <p>Email : {{users.email}}</p>
