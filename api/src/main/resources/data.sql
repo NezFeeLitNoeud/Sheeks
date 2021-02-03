@@ -6,7 +6,7 @@ INSERT INTO game (g_name, g_type) VALUES
 
 INSERT INTO "user" (u_pseudo, u_email, u_password, u_gamertag, u_plateform, u_role) VALUES
 ('ADMIN', 'admin@gmail.com', 'superAdmin', 'Admin', 'PC', (SELECT r.r_id FROM role r WHERE r.r_id = 1)),
-('Devious', 'devious.maid@gmail.com', '12345', 'Devious_maid', 'PS4', (SELECT r.r_id FROM role r WHERE r.r_id = 2)),
+('Devious', 'devious.maid@gmail.com', '$2y$12$Lq4jnf/u47Se6JLKu3P1D.S6W4rl0UZCEp1p0TM0mXnXuKCQQSlne', 'Devious_maid', 'PS4', (SELECT r.r_id FROM role r WHERE r.r_id = 2)),
 ('Extazy', 'exta@gmail.com','OKIhH', 'Extazy2001', 'PS4', (SELECT r.r_id FROM role r WHERE r.r_id = 2));
 
 INSERT INTO annonce (a_titre, a_message, a_level, a_plateforme, a_user_id, a_game_id) VALUES
