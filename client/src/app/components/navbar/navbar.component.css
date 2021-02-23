@@ -36,13 +36,13 @@ img {
 } */
 
 p > a {
-  color: #46478B;
+  color: #DBC95C;
   text-shadow: 0 5px 10px rgba(0,0,0,0.50);
   text-decoration: none;
 }
 
 p >  a:hover {
-color: #DBC95C;
+  text-decoration: underline;
 font-size: 4vw;
 font-weight: 900;
 }
@@ -54,4 +54,15 @@ font-weight: 900;
   margin: 0;
   height: 500px;
   margin: 8% 10%;
+}
+
+
+@media screen and (max-width: 860px) {
+  p {
+    font-size : 8vw;
+  }
+
+  .center{
+    margin: 10% auto!important;
+  }
 }

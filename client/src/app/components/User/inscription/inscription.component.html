@@ -48,12 +48,13 @@
         </div>
         <div class="input-field col col offset-s1 s4">
             <select class="browser-default" name="plateforme" [(ngModel)]="model.plateforme" #plateforme="ngModel" required>
-                <option value="none">Choose your plateform</option>
+                <option value="none" disabled>Choose your plateform</option>
                 <option value="PS4">PS4</option>
                 <option value="xBox">Xbox</option>
                 <option value="PC">PC</option>
                 <option value="Switch">Switch</option>
             </select>
+            <label *ngIf="plateforme.invalid" for="jeu">Plateforme</label>
             <div class="alert" *ngIf=plateformError> Please, select a valid plateforme</div>
             <div *ngIf="registerForm.submitted && plateforme.invalid" class="invalid-feedback">
               <div class="alert" *ngIf="plateforme.errors.required">Plateforme is required</div>
@@ -65,7 +66,7 @@
             M'INSCRIRE
         </button>
       </div>
-    
-   
+
+
     </form>
   </div>

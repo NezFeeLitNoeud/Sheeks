@@ -7,34 +7,46 @@
         <form name="form" (ngSubmit)="postForm.form.valid && postAnnounce()" #postForm="ngForm" novalidate>
             <div class="contain-left">
                 <div class="game">
-                    <div class="input-field col col offset-s1 s4">
+                    <div class="input-field col col offset-s0 s3">
                         <select class="browser-default" name="game" [(ngModel)]="model.game" #game="ngModel" required>
-                            <option value="none">Choose your game</option>
+                            <option value="none" disabled>Choose your game</option>
                             <option value="Rocket League">Rocket League</option>
                             <option value="Rainbow Six Siege">Rainbow 6 Siege</option>
                         </select>
+                        <label *ngIf="game.invalid" for="game">Jeu</label>
+                        <div *ngIf="postForm.submitted && game.invalid" class="invalid-feedback">
+                          <div class="alert" *ngIf="game.errors.required">Select a game.</div>
+                        </div>
                     </div>
                 </div>
                 <div class="plateform">
-                    <div class="input-field col col offset-s1 s4">
+                    <div class="input-field col col offset-s1 s3">
                         <select class="browser-default" name="plateforme" [(ngModel)]="model.plateforme" #plateforme="ngModel" required>
-                            <option value="none">Choose your plateform</option>
+                            <option value="none" disabled>Choose your plateform</option>
                             <option value="PS4">PS4</option>
                             <option value="xBox">Xbox</option>
                             <option value="PC">PC</option>
                             <option value="Switch">Switch</option>
                         </select>
+                        <label *ngIf="plateforme.invalid" for="plateforme">Plateforme</label>
+                        <div *ngIf="postForm.submitted && plateforme.invalid" class="invalid-feedback">
+                          <div class="alert" *ngIf="plateforme.errors.required">Select a plateforme.</div>
+                        </div>
                     </div>
                 </div>
                 <div class="level">
-                    <div class="input-field col col offset-s1 s4">
+                    <div class="input-field col col offset-s1 s3">
                         <select class="browser-default" name="level" [(ngModel)]="model.level" #level="ngModel" required>
-                            <option value="none">Choose your level</option>
+                            <option value="none" disabled>Choose your level</option>
                             <option value="Chill">Chill</option>
                             <option value="Ranked">Ranked</option>
                             <option value="eSport">eSport</option>
                         </select>
-                    </div>  
+                        <label *ngIf="level.invalid" for="level">Niveau</label>
+                        <div *ngIf="postForm.submitted && level.invalid" class="invalid-feedback">
+                          <div class="alert" *ngIf="level.errors.required">Select a level.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="contain-right">
@@ -42,21 +54,32 @@
                     <div class="input-field col offset-s2 s4">
                         <input id="titre" name="titre" [(ngModel)]="model.titre" #titre="ngModel" type="text" class="validate" required>
                         <label for="pseudo">Titre de l'annonce</label>
+                        <div *ngIf="postForm.submitted && titre.invalid" class="invalid-feedback">
+                          <div class="alert" *ngIf="titre.errors.required">Write a title.</div>
+                        </div>
                       </div>
                 </div>
                     <div class="message">
-                        <div class="input-field col offset-s2 s4">
+                        <!-- <div class="input-field col offset-s2 s4">
                             <input id="message" name="message" [(ngModel)]="model.message" #message="ngModel" type="text" class="validate" required>
                             <label for="pseudo">Message</label>
+                          </div> -->
+                          <div class="input-field col s12">
+                            <textarea id="message" class="materialize-textarea" name="message" [(ngModel)]="model.message" #message="ngModel" type="text" required></textarea>
+                            <label for="message">Message</label>
+                            <div *ngIf="postForm.submitted && message.invalid" class="invalid-feedback">
+                              <div class="alert" *ngIf="message.errors.required">Write a message.</div>
+                            </div>
                           </div>
+
                     </div>
                     <div class="button">
                         <button type="submit" class="col offset-s8 s3 btn-inscription">
                             POSTER
                         </button>
                     </div>
-            </div> 
-            
-        </form> 
+            </div>
+
+        </form>
     </div>
 </div>

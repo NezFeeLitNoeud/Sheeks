@@ -1,5 +1,5 @@
 h1 {
-    color: #484490;
+
     margin-left: 10%;
     letter-spacing: 10px;
     /* text-align: center; */
@@ -31,7 +31,7 @@ td {
     position: relative;
     top: 15px;
     display:inline-block;
-    width: 10px; 
+    width: 10px;
     height: 20px;
     content:"";
 }
@@ -44,8 +44,38 @@ cursor: pointer;
 .table-body > td:first-child{
     font-weight: bold;
     font-size: 15px;
-} 
+}
 
 .table-body > td {
     font-size: 11px;
+}
+
+.textbox {
+  max-width: 600px;
+  word-wrap:break-word;
+}
+
+
+@media screen and (max-width: 860px) {
+
+h1 {
+ font-size: 8vw;
+ text-align: center;
+ letter-spacing: 0;
+}
+
+.textbox {
+  max-width: 60px;
+  word-wrap:break-word;
+}
+
+.en-tete {
+  font-size: 14px;
+}
+
+.en-tete > td::after {
+  background-image: none;
+  content:"";
+}
+
 }

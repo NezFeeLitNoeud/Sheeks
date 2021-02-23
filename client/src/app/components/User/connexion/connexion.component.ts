@@ -35,7 +35,8 @@ isLogged: boolean;
             this.isLogged = false;
             console.log('Athentification failed probably because of bad credentialds');
           } else if (error.status === 500){
-            alert('Internal Server Error.')
+            console.log('Internal Server Error.')
+            this.isLogged = false;
             console.log(error)
           }
         })

@@ -24,7 +24,7 @@ public class User {
     @Column(name = "u_gamertag",nullable = false, unique = true)
     private String gamertag;
 
-    @Column(name = "u_plateform",nullable = false)
+    @Column(name = "u_plateforme",nullable = false)
     private String plateform;
 
     @OneToOne

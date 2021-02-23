@@ -19,10 +19,11 @@ const routes: Routes = [
   {path: 'search/:jeux/:plateforme/:niveau', component: SearchComponent},
   {path: 'research', component: ResearchComponent},
   {path: 'profil', component: ProfilComponent},
-  {path: 'poster', component: PostComponent, canActivate: [AuthGuardGuard]},
-  {path: 'search/announce/:id', component: DisplaySearchComponent, canActivate: [AuthGuardGuard]},
+  {path: 'poster', component: PostComponent},
+  {path: 'search/announce/:id', component: DisplaySearchComponent},
   {path: 'delete', component: SuccessfulDeleteComponent}
   // {path: '**', component: Component Pour page pas trouver}
+  // , canActivate: [AuthGuardGuard]
 ];
 
 @NgModule({

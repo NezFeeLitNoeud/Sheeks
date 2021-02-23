@@ -1,13 +1,3 @@
-<!-- <div *ngIf="annonce" class="card purple col s6 m4">
-    <p>{{annonce.user.pseudo}}</p>
-    <p>{{annonce.plateforme}}</p>
-
-    <p>{{annonce.jeux.nom}}</p>
-    <p>{{annonce.message}}</p>
-    <p>{{annonce.titre}}</p>
-    <p>{{annonce.niveau}}</p>
-
-</div> -->
 <h1>{{titleGame}}</h1>
 <div *ngIf="annonce" class="annonce-card">
     <div class="user-info">
@@ -18,7 +8,7 @@
             <p>{{annonce.user.pseudo}}</p>
             <p>{{annonce.plateforme}}</p>
             <p>{{annonce.user.gamertag}}</p>
-            <p *ngIf="showCross" (click)="deleteAnnounce()">Supprimer</p>
+
         </div>
 
     </div>
@@ -26,6 +16,7 @@
         <div class="en-tete">
             <p>Titre : {{annonce.titre}} | Niveau : {{annonce.niveau}}</p>
         </div>
+        <p class="delete" *ngIf="showCross" (click)="deleteAnnounce()">X</p>
         <p>{{annonce.message}}</p>
     </div>
 </div>
