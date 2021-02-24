@@ -29,8 +29,6 @@ export class AnswerComponent implements OnInit {
     this.annonceId = this.id
     this.announceService.getAnswerFromAnnounce(this.annonceId).subscribe(res => {
       this.answer = res;
-      console.log("-----------------")
-      console.log(this.answer)
     });
 
   }

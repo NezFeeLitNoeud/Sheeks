@@ -25,10 +25,10 @@ public class Answer {
     @JsonIgnore
     private Announce announce_id;
 
-    @Column(name = "aa_message", nullable = false)
+    @Column(name = "aa_message", nullable = false, length = 200)
     private String message;
 
-    @Column(name = "aa_creation_date", nullable = false)
+    @Column(name = "aa_creation_date", nullable = false, length = 50)
     private LocalDateTime creation_date;
 
     public Answer() {

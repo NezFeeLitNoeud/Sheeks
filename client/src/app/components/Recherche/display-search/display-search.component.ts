@@ -39,7 +39,6 @@ export class DisplaySearchComponent implements OnInit {
 
     this.announceService.getAnnonceById(this.id).subscribe(res => {
     this.annonce = res;
-    console.log(res)
     });
 
     this.userService.getUser().subscribe(res => {
@@ -50,7 +49,7 @@ export class DisplaySearchComponent implements OnInit {
         this.showCross = true
       } else {
         console.log('not working');
-        this.showCross = true
+        this.showCross = false
       }
     });
     this.titleGame = localStorage.getItem('game');

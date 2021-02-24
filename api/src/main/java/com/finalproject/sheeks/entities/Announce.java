@@ -13,23 +13,23 @@ public class Announce {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "a_user_id")
+    @JoinColumn(name = "a_u_id")
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "a_game_id", nullable = false)
+    @JoinColumn(name = "a_g_id", nullable = false)
     private Jeux jeux;
 
-    @Column(name = "a_titre", nullable = false)
+    @Column(name = "a_title", nullable = false, length = 50)
     private String titre;
 
-    @Column(name = "a_message",nullable = false)
+    @Column(name = "a_message",nullable = false, length = 500)
     private String message;
 
-    @Column(name = "a_level",nullable = false)
+    @Column(name = "a_level",nullable = false, length = 50)
     private String niveau;
 
-    @Column(name = "a_plateforme",nullable = false)
+    @Column(name = "a_plateforme",nullable = false, length = 50)
     private String plateforme;
 
     @OneToMany(mappedBy = "announce_id", cascade = CascadeType.REMOVE)

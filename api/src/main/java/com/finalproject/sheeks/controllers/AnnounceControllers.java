@@ -61,7 +61,7 @@ public class AnnounceControllers {
 
     @Secured({"ROLE_USER", "ROLE_ADMIN"})
     @PostMapping("/api/search/answer")
-    public void postAnswerToAnnounce(@RequestBody AnswerDto answer){
+    public void postAnswerToAnnounce(@Valid @RequestBody AnswerDto answer){
         answerService.addAnswer(answer.getAnnounce_id(), answer.getMessage());
     }
 

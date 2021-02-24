@@ -8,12 +8,12 @@ import javax.validation.constraints.Size;
 public class JeuxDto {
     @NotNull
     @NotEmpty
-    @Size(max = 256)
+    @Size(max = 50)
     private long id;
 
     @NotNull
     @NotEmpty
-    @Size(max = 30)
+    @Size(max = 50)
     private String nom;
 
     public JeuxDto() {

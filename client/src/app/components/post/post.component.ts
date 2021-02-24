@@ -34,9 +34,7 @@ export class PostComponent implements OnInit {
     const token = localStorage.getItem('token');
     this.announceService.postAnnounce(this.model.titre, this.model.message, this.model.level, this.model.plateforme, this.model.game)
       .subscribe(() => {
-
-          this.ngOnInit();
-          this.route.navigate['/'];
+          this.route.navigate(['/']);
         },
         error => {
           console.log(error)

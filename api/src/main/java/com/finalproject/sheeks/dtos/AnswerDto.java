@@ -13,42 +13,20 @@ import java.util.Date;
 public class AnswerDto {
 
     @NotNull
-    @NotEmpty
-    @Size(max = 256)
-    private Long user_id;
-
-    @NotNull
-    @NotEmpty
-    @Size(max = 256)
     private Long announce_id;
 
     @NotNull
     @NotEmpty
-    @Size(max = 500)
+    @Size(max = 200)
     private String message;
-
-    @NotNull
-    @NotEmpty
-    @Size(max = 30)
-    private LocalDateTime creation_date;
-
 
     public AnswerDto() {
     }
 
-    public AnswerDto(Long user_id, Long announce_id, String message, LocalDateTime creation_date) {
-        this.user_id = user_id;
+    public AnswerDto(Long announce_id, String message) {
+
         this.announce_id = announce_id;
         this.message = message;
-        this.creation_date = creation_date;
-    }
-
-    public Long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
     }
 
     public Long getAnnounce_id() {
@@ -67,11 +45,4 @@ public class AnswerDto {
         this.message = message;
     }
 
-    public LocalDateTime getCreation_date() {
-        return creation_date;
-    }
-
-    public void setCreation_date(LocalDateTime creation_date) {
-        this.creation_date = creation_date;
-    }
 }

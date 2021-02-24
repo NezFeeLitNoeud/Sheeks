@@ -15,17 +15,17 @@ public class AnnounceDto {
 
     @NotNull
     @NotEmpty
-    @Size(max = 36)
+    @Size(max = 50)
     private String jeux;
 
     @NotNull
     @NotEmpty
-    @Size(max = 10)
+    @Size(max = 50)
     private String plateforme;
 
     @NotNull
     @NotEmpty
-    @Size(max = 20)
+    @Size(max = 50)
     private String niveau;
 
     @NotNull
