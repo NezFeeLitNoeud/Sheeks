@@ -20,10 +20,17 @@ export class AnswerComponent implements OnInit {
   answer: any;
   annonceId: number;
   userPseudo: string;
+  tokenAvailable: Boolean;
   constructor(private userService: UserService, public announceService: AnnonceService, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')) {
+      this.tokenAvailable = true;
+    } else {
+      this.tokenAvailable = false;
+    }
 
+    console.log(this.tokenAvailable)
     this.model = {};
     this.userPseudo = localStorage.getItem('pseudo');
     this.annonceId = this.id

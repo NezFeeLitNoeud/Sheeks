@@ -21,7 +21,7 @@
     </div>
 
     <div class="row">
-       <button *ngIf="!isAnswering" class="btn-answer" (click)="answering()">REPONDRE</button>
+       <button *ngIf="!isAnswering && tokenAvailable" class="btn-answer" (click)="answering()">REPONDRE</button>
     </div>
 
     <div *ngIf="isAnswering" class="container center">
