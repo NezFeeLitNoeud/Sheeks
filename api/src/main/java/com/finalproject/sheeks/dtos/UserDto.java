@@ -31,18 +31,18 @@ public class UserDto {
     @NotNull
     @NotEmpty
     @Size(max = 50)
-    private String plateform;
+    private String gender;
 
 
     public UserDto() {
     }
 
-    public UserDto(String pseudo, String email, String password, String gamertag, String plateform) {
+    public UserDto(String pseudo, String email, String password, String gamertag, String gender) {
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
         this.gamertag = gamertag;
-        this.plateform = plateform;
+        this.gender = gender;
     }
 
     public String getPseudo() {
@@ -77,12 +77,12 @@ public class UserDto {
         this.gamertag = gamertag;
     }
 
-    public String getPlateform() {
-        return plateform;
+    public String getGender() {
+        return gender;
     }
 
-    public void setPlateform(String plateform) {
-        this.plateform = plateform;
+    public void setGender(String plateform) {
+        this.gender = plateform;
     }
 
     @Override
@@ -92,7 +92,7 @@ public class UserDto {
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", gamertag='" + gamertag + '\'' +
-                ", plateform='" + plateform + '\'' +
+                ", plateform='" + gender + '\'' +
                 '}';
     }
 }

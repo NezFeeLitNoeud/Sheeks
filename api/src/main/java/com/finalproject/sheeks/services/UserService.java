@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Base64;
+import java.util.Random;
 
 @Service
 public class UserService implements IUserService {
@@ -41,9 +42,13 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public void registerUser(String pseudo, String email, String password, String gamertag, String plateform) {
+    public void registerUser(String pseudo, String email, String password, String gamertag, String gender) {
         Role roleUser = roleRepository.findById((long) 2).orElseThrow();
-        User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, plateform, roleUser);
+        int reputation = 0;
+        String randomHexa = getRandomHexa();
+
+        User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, gender, reputation,
+                randomHexa, roleUser);
 
         userRepository.save(user);
     }
@@ -54,6 +59,15 @@ public class UserService implements IUserService {
         User user = userRepository.findByUsername(authentication);
 
         return user;
+    }
+
+    @Override
+    public String getRandomHexa() {
+        Random obj = new Random();
+        int rand_num = obj.nextInt(0xffffff + 1);
+
+        String colorCode = String.format("#%06x", rand_num);
+        return colorCode;
     }
 
 }

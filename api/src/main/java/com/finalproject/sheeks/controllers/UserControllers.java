@@ -31,7 +31,8 @@ public class UserControllers {
 
     @PostMapping("/register")
     public void register(@RequestBody UserDto user) {
-        userService.registerUser(user.getPseudo(), user.getEmail(), user.getPassword(), user.getGamertag(), user.getPlateform());
+        userService.registerUser(user.getPseudo(), user.getEmail(), user.getPassword(), user.getGamertag(),
+                user.getGender());
     }
 
     @GetMapping("/user")

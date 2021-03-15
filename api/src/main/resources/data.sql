@@ -4,9 +4,11 @@ INSERT INTO game (g_name, g_type) VALUES
 ('Rocket League', 'Sport'),
 ('Rainbow Six Siege', 'FPS');
 
-INSERT INTO "user" (u_pseudo, u_email, u_password, u_gamertag, u_plateforme, u_role) VALUES
-('ADMIN', 'admin@gmail.com', '$2y$12$necc1IFlk02J567ZMTZkPuKZ5kQ7sey/qnroXWSi6G4ChBdVV5Q1m', 'Admin', 'PC', (SELECT r.r_id FROM role r WHERE r.r_id = 1)),
-('Devious', 'devious.maid@gmail.com', '$2y$12$Lq4jnf/u47Se6JLKu3P1D.S6W4rl0UZCEp1p0TM0mXnXuKCQQSlne', 'Devious_maid', 'PS4', (SELECT r.r_id FROM role r WHERE r.r_id = 2));
+INSERT INTO "user" (u_pseudo, u_email, u_password, u_gamertag, u_gender, u_reputation, u_color,  u_role) VALUES
+('ADMIN', 'admin@gmail.com', '$2y$12$necc1IFlk02J567ZMTZkPuKZ5kQ7sey/qnroXWSi6G4ChBdVV5Q1m', 'Admin', 'F', 0 ,
+'#ffffff' , (SELECT r.r_id FROM role r WHERE r.r_id = 1)),
+('Devious', 'devious.maid@gmail.com', '$2y$12$Lq4jnf/u47Se6JLKu3P1D.S6W4rl0UZCEp1p0TM0mXnXuKCQQSlne', 'Devious_maid',
+ 'M', 0, '#ffffff',(SELECT r.r_id FROM role r WHERE r.r_id = 2));
 
 INSERT INTO announce (a_title, a_message, a_level, a_plateforme, a_u_id, a_g_id) VALUES
 ('Recherche Coequipier', 'Bonjour, j’ai 25 ans je m’apelle Néphéline et je recherche des personnes avec qui jouer', 'Ranked', 'PS4', (SELECT u.u_id FROM "user" u WHERE u.u_id = 2), (SELECT g.g_id FROM game g WHERE g.g_id = 1)),

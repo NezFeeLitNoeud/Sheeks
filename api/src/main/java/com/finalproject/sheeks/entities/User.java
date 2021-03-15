@@ -2,6 +2,7 @@ package com.finalproject.sheeks.entities;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Random;
 
 @Entity
 @Table( name = "\"user\"")
@@ -24,8 +25,14 @@ public class User {
     @Column(name = "u_gamertag",nullable = false, unique = true, length = 50)
     private String gamertag;
 
-    @Column(name = "u_plateforme",nullable = false, length = 50)
-    private String plateform;
+    @Column (name = "u_gender", nullable = false, length = 15)
+    private String gender;
+
+    @Column (name = "u_reputation", nullable = false, length = 500)
+    private int reputation;
+
+    @Column (name = "u_color", nullable = false, length = 20)
+    private String color;
 
     @OneToOne
     @JoinColumn(name = "u_role", nullable = false)
@@ -34,13 +41,41 @@ public class User {
     public User() {
     }
 
-    public User(String pseudo, String email, String password, String gamertag, String plateform, Role roles) {
+    public User(String pseudo, String email, String password, String gamertag, String gender, int reputation,
+                String color, Role roles) {
         this.pseudo = pseudo;
         this.email = email;
         this.password = password;
         this.gamertag = gamertag;
-        this.plateform = plateform;
+        this.gender = gender;
+        this.reputation = reputation;
+        this.color = color;
         this.roles = roles;
+    }
+
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getReputation() {
+        return reputation;
+    }
+
+    public void setReputation(int reputation) {
+        this.reputation = reputation;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
     }
 
     public Long getId() {
@@ -81,14 +116,6 @@ public class User {
 
     public void setGamertag(String gamertag) {
         this.gamertag = gamertag;
-    }
-
-    public String getPlateform() {
-        return plateform;
-    }
-
-    public void setPlateform(String plateform) {
-        this.plateform = plateform;
     }
 
     public Role getRoles() {
