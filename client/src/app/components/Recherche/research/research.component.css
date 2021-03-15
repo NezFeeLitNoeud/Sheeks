@@ -1,0 +1,54 @@
+.browser-default {
+  width: 60%;
+  display: inline-block;
+}
+
+.alert {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+label {
+  color: white;
+}
+
+.en-tete {
+ width: 40%;
+  margin: 0 35%;
+}
+.row{
+  margin: 5% auto;
+}
+
+.button {
+  text-align: center;
+}
+
+@media screen and (max-width: 860px) {
+
+  .en-tete {
+    width: 100%;
+     margin: 0 0;
+     padding:30px;
+   }
+
+   h1{
+     text-align: center;
+   }
+
+  form {
+    width: 100%;
+    margin: 0 auto;
+    display: inline-block;
+
+  }
+
+  .row .col.s3 {
+    width: 55%;
+    margin: 5% 30%;
+  }
+
+  .input-field {
+    display: block;
+  }
+}

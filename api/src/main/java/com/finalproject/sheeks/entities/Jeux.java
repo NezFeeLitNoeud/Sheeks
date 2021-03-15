@@ -8,13 +8,13 @@ public class Jeux {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "a_id")
+    @Column(name = "g_id")
     private Long id;
 
-    @Column(name = "g_name", nullable = false, unique = true)
+    @Column(name = "g_name", nullable = false, unique = true, length = 50)
     private String nom;
 
-    @Column(name = "g_type", nullable = false, unique = true)
+    @Column(name = "g_type", nullable = false, unique = true, length = 50)
     private String type;
 
     public Jeux() {

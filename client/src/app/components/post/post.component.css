@@ -8,9 +8,14 @@ form {
     padding: 10px;
 }
 
+.alert {
+  font-weight: bold;
+  font-size: 15px;
+}
 .contain-left{
     flex: 1;
     padding: 10px;
+    margin-right: 10%;
 }
 
 
@@ -18,3 +23,47 @@ form {
     flex: 2;
     padding: 10px;
 }
+label {
+  color: white;
+}
+
+.contain-left > .game, .plateform, .level > .input-field {
+  /* border: 1px green solid; */
+  margin-top: 20%;
+}
+
+input {
+  color: black;
+}
+.contain-right > .titre, .message > .input-field {
+  /* border: 1px green solid; */
+  margin-top: 10%;
+}
+
+
+  textarea {
+    height: 150px;
+  }
+
+#titre, #message {
+  background-color: #DBD159;
+}
+
+.btn-inscription {
+  margin-left: 83%;
+}
+
+@media screen and (max-width: 860px) {
+
+  h1{
+    text-align: center;
+  }
+form{
+  display: block;
+  width: 100%;
+}
+
+.btn-inscription {
+  margin-left: 35%;
+}
+  }

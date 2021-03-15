@@ -11,8 +11,10 @@ import com.finalproject.sheeks.repositories.AnswerRepository;
 import com.finalproject.sheeks.services.IAnnounceService;
 import com.finalproject.sheeks.services.IAnswerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
@@ -44,9 +46,12 @@ public class AnnounceControllers {
         return announceService.getAnnounceById(id);
     }
 
-    @PostMapping("/search/post")
-    public void postAnnounce(@RequestBody AnnounceDto announce){
-        announceService.postAnnounce(announce.getTitre(), announce.getMessage(), announce.getNiveau(), announce.getPlateforme(), announce.getJeux());
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @PostMapping("/api/search/post")
+    public void postAnnounce(@Valid @RequestBody AnnounceDto announce){
+        announceService.postAnnounce(announce.getTitre(), announce.getMessage(),
+                                     announce.getNiveau(), announce.getPlateforme(),
+                                     announce.getJeux());
     }
 
     @GetMapping("/search/announce/{id}/answer")
@@ -54,8 +59,20 @@ public class AnnounceControllers {
        return answerService.getAnswerByAnnounceId(id);
     }
 
-    @PostMapping("/search/answer")
-    public void postAnswerToAnnounce(@RequestBody AnswerDto answer){
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @PostMapping("/api/search/answer")
+    public void postAnswerToAnnounce(@Valid @RequestBody AnswerDto answer){
         answerService.addAnswer(answer.getAnnounce_id(), answer.getMessage());
+    }
+
+    @GetMapping("/research/{jeux}/{plateforme}/{niveau}")
+    public List<Announce> searchAnnounce(@PathVariable("jeux") String jeux, @PathVariable("plateforme") String plateforme, @PathVariable("niveau") String niveau){
+        return announceService.researchAnnounce(jeux, plateforme, niveau);
+    }
+
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    @DeleteMapping("/api/delete/{id}")
+    public void deleteAnnounce(@PathVariable("id") Long id){
+        announceService.deleteAnnounce(id);
     }
 }

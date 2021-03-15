@@ -20,51 +20,38 @@ export class AnswerComponent implements OnInit {
   answer: any;
   annonceId: number;
   userPseudo: string;
+  tokenAvailable: Boolean;
   constructor(private userService: UserService, public announceService: AnnonceService, private http: HttpClient, private router: Router) { }
 
   ngOnInit(): void {
+    if(localStorage.getItem('token')) {
+      this.tokenAvailable = true;
+    } else {
+      this.tokenAvailable = false;
+    }
 
+    console.log(this.tokenAvailable)
     this.model = {};
     this.userPseudo = localStorage.getItem('pseudo');
     this.annonceId = this.id
     this.announceService.getAnswerFromAnnounce(this.annonceId).subscribe(res => {
       this.answer = res;
     });
-   
+
   }
 
   sentResponse(){
     const token = localStorage.getItem('token');
-    this.http
-      .post("http://localhost:8080/search/answer", {
-        "message": this.model.message,
-        "announce_id": this.annonceId
-      }, {
-          headers: new HttpHeaders({
-          Authorization: `Basic ${token}`,
-        })
-      })
+    this.announceService.answer(this.model.message, this.annonceId)
       .subscribe(() => {
-        this.ngOnInit();
-      },
-      error => {
-        console.log(error)
-      })
+          this.ngOnInit();
+        },
+        error => {
+          console.log(error)
+        })
   }
 
   answering(){
     this.isAnswering = !this.isAnswering;
-  }
-
-  private static getAuthenticatedHttpOptions(): any {
-    const token = localStorage.getItem('token');
-    if (token) {
-      return {
-        headers: new HttpHeaders({
-          Authorization: `Basic ${token}`,
-        })
-      };
-    }
-    return undefined;
   }
 }

@@ -1,5 +1,18 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import {
+  HttpClient,
+  HttpHeaders
+} from '@angular/common/http';
+import {
+  Component,
+  OnInit
+} from '@angular/core';
+import { Router } from '@angular/router';
+import {
+  AnnonceService
+} from 'src/app/services/annonce/annonce.service';
+import {
+  UserService
+} from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-post',
@@ -9,35 +22,22 @@ import { Component, OnInit } from '@angular/core';
 export class PostComponent implements OnInit {
 
   model: any;
-  constructor(private http: HttpClient) { }
+  constructor(private announceService: AnnonceService, private route: Router) {}
 
   ngOnInit(): void {
 
     this.model = {};
   }
 
-  postAnnounce(){
+  postAnnounce() {
 
     const token = localStorage.getItem('token');
-    
-   this.http
-   .post("http://localhost:8080/search/post", {
-        "titre": this.model.titre,
-        "message": this.model.message,
-        "niveau" : this.model.level,
-        "plateforme" : this.model.plateforme,
-        "jeux" : this.model.game
-   },{
-    headers: new HttpHeaders({
-    Authorization: `Basic ${token}`,
-  })
-})
-.subscribe(() => {
-  this.ngOnInit();
-},
-error => {
-  console.log(error)
-})
+    this.announceService.postAnnounce(this.model.titre, this.model.message, this.model.level, this.model.plateforme, this.model.game)
+      .subscribe(() => {
+          this.route.navigate(['/']);
+        },
+        error => {
+          console.log(error)
+        })
   }
-
 }

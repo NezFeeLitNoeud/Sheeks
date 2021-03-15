@@ -7,15 +7,6 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
 public class AnnounceDto {
-    @NotNull
-    @NotEmpty
-    @Size(max = 256)
-    private long id;
-
-    @NotNull
-    @NotEmpty
-    @Size(max = 30)
-    private String userPseudo;
 
     @NotNull
     @NotEmpty
@@ -24,17 +15,17 @@ public class AnnounceDto {
 
     @NotNull
     @NotEmpty
-    @Size(max = 36)
+    @Size(max = 50)
     private String jeux;
 
     @NotNull
     @NotEmpty
-    @Size(max = 10)
+    @Size(max = 50)
     private String plateforme;
 
     @NotNull
     @NotEmpty
-    @Size(max = 20)
+    @Size(max = 50)
     private String niveau;
 
     @NotNull
@@ -45,30 +36,12 @@ public class AnnounceDto {
     public AnnounceDto() {
     }
 
-    public AnnounceDto(long id, String userPseudo, String titre, String jeux, String plateforme, String niveau, String message) {
-        this.id = id;
-        this.userPseudo = userPseudo;
+    public AnnounceDto(String titre, String jeux, String plateforme, String niveau, String message) {
         this.titre = titre;
         this.jeux = jeux;
         this.plateforme = plateforme;
         this.niveau = niveau;
         this.message = message;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public String getUserPseudo() {
-        return userPseudo;
-    }
-
-    public void setUserPseudo(String userPseudo) {
-        this.userPseudo = userPseudo;
     }
 
     public String getTitre() {

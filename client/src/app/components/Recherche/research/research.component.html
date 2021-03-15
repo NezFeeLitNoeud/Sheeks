@@ -1,0 +1,50 @@
+<div class="en-tete">
+  <h1>Recherche</h1>
+  <p>Rechercher toutes les annonces que vous souhaitez ! Selectionner un jeu, une plateforme, un niveau et le tour est joué.</p>
+</div>
+
+<form name="form" (ngSubmit)="searchForm.form.valid && searchAnnounce()" #searchForm="ngForm" novalidate>
+    <div class="row">
+        <div class="game">
+            <div class="input-field col col offset-s2 s3">
+                <select class="browser-default" name="jeu" [(ngModel)]="model.jeu" #jeu="ngModel" required>
+                    <option value="none" disabled>Choix du jeu</option>
+                    <option *ngFor="let jeu of jeux" [value]="jeu.nom">{{jeu.nom}}</option>
+                </select>
+                <label *ngIf="jeu.invalid" for="jeu">Jeu</label>
+                <div *ngIf="searchForm.submitted && jeu.invalid" class="invalid-feedback">
+                  <div class="alert" *ngIf="jeu.errors.required">Select a game.</div>
+                </div>
+            </div>
+        </div>
+        <div class="plateform">
+            <div class="input-field col col offset-s0 s3">
+                <select class="browser-default" name="plateforme" [(ngModel)]="model.plateforme" #plateforme="ngModel" required>
+                    <option value="none" disabled>Choix de la plateforme</option>
+                    <option *ngFor="let plateforme of plateformes" [value]="plateforme">{{plateforme}}</option>
+                </select>
+                <label *ngIf="plateforme.invalid" for="plateforme">Plateforme</label>
+                <div *ngIf="searchForm.submitted && plateforme.invalid" class="invalid-feedback">
+                  <div class="alert" *ngIf="plateforme.errors.required">Select a plateforme.</div>
+                </div>
+            </div>
+        </div>
+        <div class="level">
+            <div class="input-field col col offset-s0 s3">
+                <select class="browser-default" name="level" [(ngModel)]="model.level" #level="ngModel" required>
+                    <option value="none" disabled>Choose your level</option>
+                    <option *ngFor="let level of levels" [value]="level">{{level}}</option>
+                </select>
+                <label *ngIf="level.invalid" for="level">Niveau</label>
+                <div *ngIf="searchForm.submitted && level.invalid" class="invalid-feedback">
+                  <div class="alert" *ngIf="level.errors.required">Select a level.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <div class="button">
+                <button type="submit" class="col offset-s8 s3 btn-inscription">
+                    Rechercher
+                </button>
+            </div>
+</form>

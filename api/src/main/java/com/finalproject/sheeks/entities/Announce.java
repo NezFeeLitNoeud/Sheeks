@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "annonce")
+@Table(name = "announce")
 public class Announce {
 
     @Id
@@ -13,38 +13,48 @@ public class Announce {
     private Long id;
 
     @OneToOne
-    @JoinColumn(name = "a_user_id")
+    @JoinColumn(name = "a_u_id")
     private User user;
 
     @OneToOne
-    @JoinColumn(name = "a_game_id", nullable = false)
-    //@Column(name = "a_game", nullable = false)
+    @JoinColumn(name = "a_g_id", nullable = false)
     private Jeux jeux;
 
-    @Column(name = "a_titre", nullable = false)
+    @Column(name = "a_title", nullable = false, length = 50)
     private String titre;
 
-    @Column(name = "a_message",nullable = false)
+    @Column(name = "a_message",nullable = false, length = 500)
     private String message;
 
-    @Column(name = "a_level",nullable = false)
+    @Column(name = "a_level",nullable = false, length = 50)
     private String niveau;
 
-    @Column(name = "a_plateforme",nullable = false)
+    @Column(name = "a_plateforme",nullable = false, length = 50)
     private String plateforme;
 
+    @OneToMany(mappedBy = "announce_id", cascade = CascadeType.REMOVE)
+    private List<Answer> answers;
 
     public Announce() {
     }
 
     public Announce(User user, Jeux jeux, String titre, String message, String niveau, String plateforme) {
-
         this.user = user;
         this.jeux = jeux;
         this.titre = titre;
         this.message = message;
         this.niveau = niveau;
         this.plateforme = plateforme;
+    }
+
+    public Announce(User user, Jeux jeux, String titre, String message, String niveau, String plateforme, List<Answer> answers) {
+        this.user = user;
+        this.jeux = jeux;
+        this.titre = titre;
+        this.message = message;
+        this.niveau = niveau;
+        this.plateforme = plateforme;
+        this.answers = answers;
     }
 
     public Long getId() {
@@ -101,5 +111,13 @@ public class Announce {
 
     public void setPlateforme(String plateforme) {
         this.plateforme = plateforme;
+    }
+
+    public List<Answer> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answer> answers) {
+        this.answers = answers;
     }
 }

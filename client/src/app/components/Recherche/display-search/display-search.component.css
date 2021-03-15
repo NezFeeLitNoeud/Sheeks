@@ -4,7 +4,6 @@ h1 {
 
 .annonce-card {
     width: 70%;
-    color: #484490;
     margin: 10% 15%;
 }
 
@@ -30,12 +29,36 @@ h1 {
     padding: 20px 5px 5px 50px;
     background-color: #dbc95b;
     border-radius: 10px;
+    color: #484490;
     height: 150px;
-} 
+}
+
+.delete {
+  position: relative;
+  left: 97%;
+  top: -40%;
+  color: red;
+  font-weight: bold;
+}
+
+.delete:hover {
+cursor: pointer;
+}
 
 .en-tete {
     font-size: 10px;
-    color: grey;
+    color: #484490;
     text-align: center;
 }
 
+@media screen and (max-width: 860px) {
+  .delete {
+    left: 90%;
+  }
+
+  .annonce-card{
+    width: 90%;
+    margin: 0 auto;
+
+  }
+}

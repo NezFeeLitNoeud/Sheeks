@@ -12,23 +12,23 @@ public class User {
     @Column(name = "u_id")
     private Long id;
 
-    @Column(name = "u_pseudo", nullable = false, unique = true)
+    @Column(name = "u_pseudo", nullable = false, unique = true, length = 50)
     private String pseudo;
 
-    @Column(name = "u_email",nullable = false, unique = true)
+    @Column(name = "u_email",nullable = false, unique = true, length = 50)
     private String email;
 
-    @Column(name = "u_password",nullable = false)
+    @Column(name = "u_password",nullable = false, length = 200)
     private String password;
 
-    @Column(name = "u_gamertag",nullable = false, unique = true)
+    @Column(name = "u_gamertag",nullable = false, unique = true, length = 50)
     private String gamertag;
 
-    @Column(name = "u_plateform",nullable = false)
+    @Column(name = "u_plateforme",nullable = false, length = 50)
     private String plateform;
 
     @OneToOne
-    @JoinColumn(name = "u_role")
+    @JoinColumn(name = "u_role", nullable = false)
     private Role roles;
 
     public User() {

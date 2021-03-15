@@ -9,28 +9,28 @@ import javax.validation.constraints.Size;
 public class UserDto {
     @NotNull
     @NotEmpty
-    @Size(max = 256)
+    @Size(max = 50)
     private String pseudo;
 
     @NotNull
     @NotEmpty
     @Email
-    @Size(max = 256)
+    @Size(max = 50)
     private String email;
 
     @NotNull
     @NotEmpty
-    @Size(max = 256)
+    @Size(max = 50)
     private String password;
 
     @NotNull
     @NotEmpty
-    @Size(max = 256)
+    @Size(max = 50)
     private String gamertag;
 
     @NotNull
     @NotEmpty
-    @Size(max = 256)
+    @Size(max = 50)
     private String plateform;
 
 

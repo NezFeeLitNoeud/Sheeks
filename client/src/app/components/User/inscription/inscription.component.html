@@ -6,37 +6,59 @@
         <div class="input-field col offset-s2 s4">
           <input id="pseudo" name="pseudo" [(ngModel)]="model.pseudo" #pseudo="ngModel" type="text" class="validate" required>
           <label for="pseudo">Pseudo</label>
+          <div *ngIf="registerForm.submitted && pseudo.invalid" class="invalid-feedback">
+            <div class="alert" *ngIf="pseudo.errors.required">Pseudo is required</div>
+          </div>
         </div>
         <div class="input-field col offset-s1 s4">
             <input id="email" type="email" name="email"  email [(ngModel)]="model.email" #email="ngModel" class="validate" required>
             <label for="email">Email</label>
-            <p class="alert" *ngIf="email.errors?.email">Your email is not valid.</p>
+            <div *ngIf="registerForm.submitted && email.invalid" class="invalid-feedback">
+              <div class="alert" *ngIf="email.errors.required">Email is required</div>
+              <div class="alert" *ngIf="email.errors.email">You need a format email</div>
+            </div>
           </div>
       </div>
       <div class="row">
         <div class="input-field col offset-s2 s4">
-          <input id="password" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" class="validate" required>
+          <input id="password" type="password" name="password" [(ngModel)]="model.password" #password="ngModel" class="validate" minlength="8" required>
           <label for="password">Password</label>
           <p class="alert" *ngIf="!passwordMatch">Your passwords doesn't match</p>
+          <div *ngIf="registerForm.submitted && password.invalid" class="invalid-feedback">
+            <div class="alert" *ngIf="password.errors.required">Password is required</div>
+            <div class="alert" *ngIf="password.errors.minlength">Password must be at least 8 characters</div>
+          </div>
         </div>
         <div class="input-field col col offset-s1 s4">
-            <input id="confirm_password" type="password" name="confPassword" [(ngModel)]="model.confPassword" #confPassword="ngModel" class="validate" required>
+            <input id="confirm_password" type="password" name="confPassword" [(ngModel)]="model.confPassword" #confPassword="ngModel" class="validate" minlength="8" required>
             <label for="confirm_password">Conformation password</label>
+            <div *ngIf="registerForm.submitted && confPassword.invalid" class="invalid-feedback">
+              <div class="alert" *ngIf="confPassword.errors.required">Password confirmation is required</div>
+              <div class="alert" *ngIf="confPassword.errors.minlength">Password must be at least 8 characters</div>
+            </div>
           </div>
       </div>
       <div class="row">
         <div class="input-field col offset-s2 s4">
             <input id="gamer_tag" type="text" name="gamertag" [(ngModel)]="model.gamertag" #gamertag="ngModel" class="validate" required>
             <label for="gamer_tag">Gamertag</label>
+            <div *ngIf="registerForm.submitted && gamertag.invalid" class="invalid-feedback">
+              <div class="alert" *ngIf="gamertag.errors.required">Gamertag is required</div>
+            </div>
         </div>
         <div class="input-field col col offset-s1 s4">
             <select class="browser-default" name="plateforme" [(ngModel)]="model.plateforme" #plateforme="ngModel" required>
-                <option value="none">Choose your plateform</option>
+                <option value="none" disabled>Choose your plateform</option>
                 <option value="PS4">PS4</option>
                 <option value="xBox">Xbox</option>
                 <option value="PC">PC</option>
                 <option value="Switch">Switch</option>
             </select>
+            <label *ngIf="plateforme.invalid" for="jeu">Plateforme</label>
+            <div class="alert" *ngIf=plateformError> Please, select a valid plateforme</div>
+            <div *ngIf="registerForm.submitted && plateforme.invalid" class="invalid-feedback">
+              <div class="alert" *ngIf="plateforme.errors.required">Plateforme is required</div>
+            </div>
         </div>
       </div>
       <div class="row">
@@ -44,7 +66,7 @@
             M'INSCRIRE
         </button>
       </div>
-    
-   
+
+
     </form>
   </div>

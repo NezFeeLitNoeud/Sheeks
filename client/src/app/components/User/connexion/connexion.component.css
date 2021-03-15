@@ -11,7 +11,7 @@ label {
  /* label focus color */
  .input-field input[type=text]:focus + label {
     color: white;
-    
+
 }
 /* label underline focus color */
   .input-field input[type=text]:focus {

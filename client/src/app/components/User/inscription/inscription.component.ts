@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from "@angular/common/http";
+import { UserService } from 'src/app/services/users/user.service';
 
 @Component({
   selector: 'app-inscription',
@@ -10,9 +11,10 @@ import {HttpClient} from "@angular/common/http";
 export class InscriptionComponent implements OnInit {
 model: any;
 passwordMatch: boolean = true;
+plateformError: boolean;
 
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
   
@@ -35,19 +37,13 @@ passwordMatch: boolean = true;
     this.verifyPassword(this.model.password, this.model.confPassword);
 
     let password = '';
-
-    if(this.passwordMatch == true){
+if(this.model.plateforme != "none"){
+  this.plateformError = false;
+  if(this.passwordMatch == true){
       password = this.model.password;
-      this.http
-      .post("http://localhost:8080/register", {
-        "pseudo": this.model.pseudo,
-        "email": this.model.email,
-        "password": password,
-        "gamertag": this.model.gamertag,
-        "plateform": this.model.plateforme,
-      })
+      this.userService.register(this.model.pseudo, this.model.email, password, this.model.gamertag, this.model.plateforme)
       .subscribe(() => {
-        this.router.navigate(["/Connexion"])
+        this.router.navigate(["/connexion"])
       },
       error => {
         console.log(`Login failed : ${error}`)
@@ -55,10 +51,10 @@ passwordMatch: boolean = true;
     } else {
       password = null;
     }
-
-    console.log(this.passwordMatch)
-  
-  
+  } else {
+    this.plateformError = true;
   }
+}
+    
 
 }

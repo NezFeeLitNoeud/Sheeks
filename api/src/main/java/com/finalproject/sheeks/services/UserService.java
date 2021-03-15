@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.Base64;
+
 @Service
 public class UserService implements IUserService {
 
@@ -29,14 +31,18 @@ public class UserService implements IUserService {
     @Override
     public void verifyUser(String pseudo, String password) {
         UserDetails user = userDetailsService.loadUserByUsername(pseudo);
-        if (!passwordEncoder.matches(password, user.getPassword())) {
+
+        byte[] decodedBytes = Base64.getDecoder().decode(password);
+        String decodedPassword = new String(decodedBytes);
+
+        if (!passwordEncoder.matches(decodedPassword, user.getPassword())) {
             throw new BadCredentialsException("bad credentials " + pseudo);
         }
     }
 
     @Override
     public void registerUser(String pseudo, String email, String password, String gamertag, String plateform) {
-        Role roleUser = roleRepository.findById((long) 1).orElseThrow();
+        Role roleUser = roleRepository.findById((long) 2).orElseThrow();
         User user = new User(pseudo, email, passwordEncoder.encode(password), gamertag, plateform, roleUser);
 
         userRepository.save(user);

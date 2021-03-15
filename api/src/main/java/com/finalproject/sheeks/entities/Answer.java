@@ -1,6 +1,8 @@
 package com.finalproject.sheeks.entities;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Date;
@@ -11,21 +13,22 @@ public class Answer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "au_id")
+    @Column(name = "aa_id")
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "au_u_id")
+    @JoinColumn(name = "aa_u_id")
     private User user_id;
 
     @ManyToOne
-    @JoinColumn(name = "au_a_id")
+    @JoinColumn(name = "aa_a_id")
+    @JsonIgnore
     private Announce announce_id;
 
-    @Column(name = "au_message", nullable = false)
+    @Column(name = "aa_message", nullable = false, length = 200)
     private String message;
 
-    @Column(name = "au_creation_date", nullable = false)
+    @Column(name = "aa_creation_date", nullable = false, length = 50)
     private LocalDateTime creation_date;
 
     public Answer() {

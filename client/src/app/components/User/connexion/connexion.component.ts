@@ -21,7 +21,8 @@ isLogged: boolean;
   }
 
   login() {
-    this.userService.login(this.model.pseudo, this.model.password)
+    let cryptedPassword = btoa(this.model.password)
+    this.userService.login(this.model.pseudo, cryptedPassword)
       .subscribe(() => {
           let base64hash = btoa(this.model.pseudo + ':' + this.model.password);
           localStorage.setItem('token', base64hash);
@@ -34,7 +35,8 @@ isLogged: boolean;
             this.isLogged = false;
             console.log('Athentification failed probably because of bad credentialds');
           } else if (error.status === 500){
-            alert('Internal Server Error.')
+            console.log('Internal Server Error.')
+            this.isLogged = false;
             console.log(error)
           }
         })
