@@ -19,14 +19,14 @@ public getUser() {
   return this.http.get(this.url +`user`, this.getAuthenticatedHttpOptions());
 }
 
-public register(pseudo:string, email:string, password:string, gamertag:string, plateforme: string) {
+public register(pseudo:string, email:string, password:string, gamertag:string, gender: string) {
   return this.http
   .post(this.url + `register`, {
 pseudo: pseudo,
 email: email,
 password: password,
 gamertag: gamertag,
-plateform: plateforme
+gender: gender
   })
 
 }

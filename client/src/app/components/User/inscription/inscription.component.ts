@@ -17,7 +17,7 @@ plateformError: boolean;
   constructor(private http: HttpClient, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-  
+
     this.model = {};
     localStorage.setItem('token', '');
     localStorage.setItem('pseudo', '');
@@ -41,7 +41,7 @@ if(this.model.plateforme != "none"){
   this.plateformError = false;
   if(this.passwordMatch == true){
       password = this.model.password;
-      this.userService.register(this.model.pseudo, this.model.email, password, this.model.gamertag, this.model.plateforme)
+      this.userService.register(this.model.pseudo, this.model.email, password, this.model.gamertag, this.model.gender)
       .subscribe(() => {
         this.router.navigate(["/connexion"])
       },
@@ -55,6 +55,6 @@ if(this.model.plateforme != "none"){
     this.plateformError = true;
   }
 }
-    
+
 
 }
