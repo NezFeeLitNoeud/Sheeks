@@ -51,6 +51,12 @@ cursor: pointer;
     text-align: center;
 }
 
+.profil-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
+
 @media screen and (max-width: 860px) {
   .delete {
     left: 90%;

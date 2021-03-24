@@ -2,6 +2,13 @@
  margin: 0 auto;
 }
 
+.card-image {
+  margin: 0 auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50px;
+}
+
 
 
 @media screen and (max-width: 860px) {

@@ -2,11 +2,11 @@
 <div *ngIf="annonce" class="annonce-card">
     <div class="user-info">
         <div class="col left">
-           <i class="material-icons white circle">face</i>
+          <div class="profil-picture" [style.background-color]=annonce.user.color></div>
         </div>
         <div class="col right">
             <p>{{annonce.user.pseudo}}</p>
-            <p>{{annonce.plateforme}}</p>
+            <!-- <p>{{annonce.plateforme}}</p> -->
             <p>{{annonce.user.gamertag}}</p>
 
         </div>

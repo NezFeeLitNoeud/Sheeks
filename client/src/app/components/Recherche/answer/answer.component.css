@@ -40,6 +40,11 @@
     text-align: center;
 }
 
+.profil-picture {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+}
 
 .btn-answer {
     font-weight: bold;
@@ -75,8 +80,6 @@
  /* label focus color */
  textarea:focus + label {
     color: white;
-
-
 }
 /* label underline focus color */
 textarea:focus {

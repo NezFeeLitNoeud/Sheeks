@@ -4,8 +4,8 @@
  <div *ngIf="users" class="row container">
     <div class="col offset-s3 s6 transparent">
       <div class="card transparent">
-        <div class="card-image ">
-          <img src="../../../../assets/image/logo/SHEEKS-02.svg" width="300" height="250" alt="Logo Sheeks">
+        <div class="card-image" [style.background-color]="users.color">
+
         </div>
         <div class="card-content center-align">
           <p>Email : {{users.email}}</p>

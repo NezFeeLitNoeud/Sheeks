@@ -3,11 +3,11 @@
     <div *ngFor="let answers of answer, let index = index" class="annonce-card">
         <div class="user-info">
             <div class="col left">
-               <i class="material-icons white circle">face</i>
+               <div class="profil-picture" [style.background-color]=answers.user_id.color></div>
             </div>
             <div class="col right">
                 <p>{{answers.user_id.pseudo}}</p>
-                <p>{{answers.user_id.plateform}}</p>
+                <!-- <p>{{answers.user_id.gender}}</p> -->
                 <p>{{answers.user_id.gamertag}}</p>
             </div>
 
